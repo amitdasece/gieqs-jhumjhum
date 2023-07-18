@@ -1,0 +1,83 @@
+CREATE TABLE `usersVideoChapterProgress` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , `user_id` INT(11) NOT NULL , 
+`chapter_id` INT(11) NOT NULL , 
+`progress` VARCHAR(50) NULL DEFAULT NULL , PRIMARY KEY (`id`), INDEX (`user_id`),
+INDEX (`chapter_id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+CREATE TABLE `usersVideoCompletion` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , 
+`user_id` INT(11) NOT NULL , 
+`complete` VARCHAR(50) NULL DEFAULT NULL , 
+`pre_complete` VARCHAR(50) NULL DEFAULT NULL, 
+`post_complete` VARCHAR(50) NULL DEFAULT NULL, 
+`pre_score` VARCHAR(50) NULL DEFAULT NULL, 
+`post_score` VARCHAR(50) NULL DEFAULT NULL, 
+PRIMARY KEY (`id`), INDEX (`user_id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+CREATE TABLE `blog_v2` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , 
+`video_id` INT(11) NOT NULL , 
+`user_id` INT(11) NOT NULL , 
+`title` VARCHAR(400) NULL DEFAULT NULL , 
+`description` VARCHAR(1000) NULL DEFAULT NULL, 
+`created` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, 
+PRIMARY KEY (`id`), INDEX (`video_id`), INDEX (`user_id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+CREATE TABLE `menu` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , 
+`title` VARCHAR(400) NULL DEFAULT NULL ,
+PRIMARY KEY (`id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+CREATE TABLE `navigation` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , 
+`menu_id` INT(11) NOT NULL , 
+`superCategory` INT(11) NOT NULL , 
+`title` VARCHAR(400) NULL DEFAULT NULL , 
+`order` VARCHAR(11) NULL DEFAULT NULL, 
+PRIMARY KEY (`id`), INDEX (`menu_id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+CREATE TABLE `pages` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , 
+`headings_id` INT(11) NOT NULL , 
+`order` VARCHAR(11) NOT NULL , 
+`title` VARCHAR(400) NULL DEFAULT NULL , 
+`description` VARCHAR(1000) NULL DEFAULT NULL, 
+`simple` VARCHAR(11) NOT NULL, 
+PRIMARY KEY (`id`), INDEX (`headings_id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+CREATE TABLE `pagesTagCategory` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , 
+`pages_id` INT(11) NOT NULL,
+`tagCategories_id` INT(11) NOT NULL,
+PRIMARY KEY (`id`), INDEX (`pages_id`), INDEX (`tagCategories_id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+CREATE TABLE `pagesVideo` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , 
+`pages_id` INT(11) NOT NULL,
+`video_id` INT(11) NOT NULL,
+PRIMARY KEY (`id`), INDEX (`pages_id`), INDEX (`video_id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+CREATE TABLE `headings` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , 
+`navigation_id` INT(11) NOT NULL,
+`order` VARCHAR(11) NOT NULL,
+PRIMARY KEY (`id`), INDEX (`navigation_id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+CREATE TABLE `questionsVideo` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , 
+`video_id` INT(11) NOT NULL , 
+`order` VARCHAR(11) NOT NULL , 
+`question` VARCHAR(1000) NULL DEFAULT NULL , 
+`pre` VARCHAR(11) NOT NULL, 
+PRIMARY KEY (`id`), INDEX (`video_id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+CREATE TABLE `questionsAnswers` ( 
+`id` INT(11) NOT NULL AUTO_INCREMENT , 
+`questionsVideo_id` INT(11) NOT NULL , 
+`order` VARCHAR(11) NOT NULL , 
+`answer` VARCHAR(1000) NULL DEFAULT NULL , 
+`correct` VARCHAR(11) NOT NULL, 
+PRIMARY KEY (`id`), INDEX (`questionsVideo_id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_bin;
+
+
+

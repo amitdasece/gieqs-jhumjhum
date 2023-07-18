@@ -1,0 +1,339 @@
+<?php
+require ('../../assets/includes/config.inc.php');		
+require(BASE_URI . '/pages/backend/institution_header.php');
+
+
+if (isset($_GET["token_id"]) && is_numeric($_GET["token_id"])){
+	$token_id = $_GET["token_id"];
+    $token_id_set = true;
+
+}else{
+
+	$token_id = null;
+    $token_id_set = false;
+    echo '<div class="container">';
+    echo '<p>Please set the token id in the url, e.g. ?id=[tokenid]</p>';
+    echo '</div>';
+    exit();
+
+}
+
+
+
+
+            //error_reporting(E_ALL);
+            //$print_r()
+
+            //$data = json_decode(file_get_contents('php://input'), true);
+
+            //print_r($data);
+
+            //get all faculty
+
+            $debug = false;
+
+            if ($token_id_set){
+
+
+               /*  $response = $sessionView->generateView($token_id);
+                if ($debug){
+                print_r($response);
+                } */
+
+                $users_token = $institutional_manager->getUsersToken($token_id, false);
+
+                if ($debug){
+                    
+                    print_r($users_token);
+
+                }
+
+
+
+
+            }else{
+
+                exit();
+
+            }
+
+            echo '<div class="container mt-5">';
+
+            echo '<h2>Registrants for Token id ' . $token_id . '</h2>';
+
+            $token->Load_from_key($token_id);
+
+            echo '<p>Token Used , Remaining = ' . $token->getremaining() . '</p>';
+
+            echo '<p>Institution: ' . $token->getinstitutional_id() . ' </p>';
+
+            echo '<p>Sponsor: ' . $token->getsponsor() . ' </p>';
+
+            echo '<table class="table">';
+            echo '<thead>';
+            echo '<tr>';
+            echo '<th>User id</th>';
+            echo '<th>Name</th>';
+            echo '<th>Email</th>';
+                        echo '<th>Subscription id</th>';
+
+            echo '<th>Registered date</th>';
+            echo '<th>Subscription Expiry Date</th>';
+            echo '</tr>';
+            echo '</thead>';
+            echo '<tbody>';
+
+            foreach ($users_token as $key=>$value){
+
+                $users->Load_from_key($value);
+
+                echo '<tr>';
+
+                echo '<td>' . $value . '</td>';
+
+                echo '<td><a href="institution_user_report.php?institution_id=' . $institution_id . '&user_id=' . $value . '">'  . $users->getfirstname() . ' ' . $users->getsurname() . '</a></td>';
+
+                echo '<td>'  . $users->getemail() . '</td>';
+
+                echo '<td>'  . $subscriptionid = $assetManager->provideInstitutionalDatav2($token_id, false)[$value] . '</td>';  //needs new function get user_subscription_token, define subscription id
+
+                $subscription->Load_from_key($subscriptionid);
+
+                echo '<td>'  . $subscription->getstart_date() . '</td>';  //needs new function get user_subscription_token, define subscription id
+
+                echo '<td>'  . $subscription->getexpiry_date() . '</td>';  //needs new function get user_subscription_token, define subscription id
+
+
+                echo '</tr>';
+
+
+                //echo '<p>' . $users->getfirstname() . ' ' . $users->getsurname() . ' ' .  $users->getemail() . '</p>';
+
+                //echo '<p></p>';
+
+            }
+
+            echo '</tbody>';
+            echo '</table>';
+
+            echo '</div>';
+
+            exit();
+
+            //get the users who registered with a token
+
+            //print_r($facultyMembers);
+
+            $serverTimeZone = new DateTimeZone('Europe/Brussels');
+
+
+            $currentTime = new DateTime('now', $serverTimeZone);
+
+
+            if ($debug){
+                echo '<br/><br/>response Array contains </br></br>';
+                print_r($response);
+
+            }
+
+            $moderators = $sessionView->getModerators($response[0]['sessionid']);
+
+            if ($debug){
+                echo '<br/><br/>moderators Array contains </br></br>';
+                print_r($moderators);
+
+            }
+
+            $programmeDate = new DateTime($response[0]['date']);
+
+            if ($debug){
+
+                print_r($programmeDate); 
+                
+            }
+
+            $sessionTimeFrom = new DateTime($response[0]['date'] . ' ' . $response[0]['timeFrom'] , $serverTimeZone);
+
+            $sessionTimeTo = new DateTime($response[0]['date'] . ' ' . $response[0]['timeTo'], $serverTimeZone);
+
+echo '<div class="container mt-5">';
+
+
+            echo '
+                            <div class=" " id="-' . $programmeDate->format('l') . '-' . $response[0]['programmeid'] . '-' . $sessionTimeFrom->format('Hi') . '" tabindex="-1" role="dialog" aria-labelledby="-change-username" aria-hidden="true">
+                                <div class="-dialog -lg -dialog-centered" role="document">
+                                    <form>';
+                                    ?>
+
+<div class="content border" style="border-color:rgb(22, 42, 76) !important;">
+    <div class="p-2">
+
+        <div class="p-2 d-flex align-items-left" id="-title-change-username">
+            <div>
+                <div class="icon icon-sm icon-shape icon-info rounded-circle shadow mr-3">
+                    <img src="<?php echo BASE_URL;?>/assets/img/icons/gieqsicon.png">
+                </div>
+            </div>
+            <div class="ml-3 text-left">
+                <span class="h5 mb-0"><?php echo $response[0]['sessionTitle']?></span>
+                <?php
+                                                                                //$edit=1;
+                                                                                    if ($edit == TRUE){
+                                                                                        echo '<span class="ml-3 editSession" data="' . $response[0]['sessionid'] . '"><i class="fas fa-edit"></i></span>';
+                                                                
+                                                                                    }
+                                                                                
+                                                                                ?>
+                <p class="mb-0"><?php echo $programmeDate->format('D d M Y');?>
+
+                    <?php 
+                                                            
+                                                            $sessionItemTimeFrom = new DateTime($response[0]['timeFrom'], $serverTimeZone);
+                                                            $sessionItemTimeTo = new DateTime($response[array_key_last($response)]['timeTo'], $serverTimeZone);
+                                                            
+                                                            
+                                                            ?>
+
+                    <?php echo ' ' . $sessionItemTimeFrom->format('H:i')?> -
+                    <?php echo $sessionItemTimeTo->format('H:i')?></p>
+                <p class="mb-0 h6"><?php echo $response[0]['sessionSubtitle']?></p>
+                <p class="mb-0 ml-1"></i><?php echo $response[0]['sessionDescription']?></p>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="-subheader px-3 mt-2 mb-2 border-bottom">
+        <div class="row">
+            <div class="col-sm-12 text-left">
+                <div>
+                    <span class="h6 mb-0">Moderators</span>
+                    <?php
+                                                                                    if ($edit == TRUE){
+                                                                                        
+                                                                                        echo '<span class="ml-1 addModerators"><i class="fas fa-plus"></i></span>';
+                                                                
+                                                                                    }
+                                                                                
+                                                                                    
+                                                                                ?>
+                    <br />
+
+                    <?php
+                                                                
+                                                                                    foreach ($moderators as $key=>$value){
+                                                                                        echo '<span class="faculty mb-0 mr-1" data="' . $value['facultyid'] . '">';
+                                                                                        echo $value['title'] . ' ' . $value['firstname'] . ' ' . $value['surname'];
+                                                                                        echo '</span><br/>';
+                                                                                        
+                                                                                    if ($edit == TRUE){
+                                                                                        
+                                                                                        echo '<span class="ml-1 mr-3 removeModerators"><i class="fas fa-minus"></i></span>';
+                                                                
+                                                                                    }
+                                                                                
+                                                                            
+                                                                
+                                                                                    }
+                                                                                    
+                                                                                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-2">
+
+        <div class="programme-body">
+            <?php foreach ($response as $key=>$value){
+                                                                                        ?>
+
+
+            <div class="sessionItem row d-flex align-items-left text-left align-middle">
+                <span class="sessionItemid" style="display:none;"><?php echo $value['sessionItemid'];?></span>
+                <div class="pl-2 pr-1 pb-0 pt-1 time">
+                    <?php 
+                                                            
+                                                            $sessionItemTimeFrom = new DateTime($value['sessionItemTimeFrom'], $serverTimeZone);
+                                                            $sessionItemTimeTo = new DateTime($value['sessionItemTimeTo'], $serverTimeZone);
+                                                            
+                                                            
+                                                            ?>
+
+
+
+                    <span class="timeFrom"><?php echo $sessionItemTimeFrom->format('H:i');?></span> - <span
+                        class="timeTo"><?php echo $sessionItemTimeTo->format('H:i');?></span>
+                    : </span>
+
+
+                    <span class="h6 sessionTitle"><?php echo $value['sessionItemTitle'];?></span>
+
+                    <!--if live stream-->
+                    <!--if sessionItem.live == 1-->
+                    <?php if ($value['live'] == 1){?>
+                    <span class="badge text-white ml-3" style="background-color:rgb(238, 194, 120) !important;">Live
+                    </span>
+
+                    <?php }
+                                                                
+                                                                                    if ($edit == TRUE){
+                                                                                        echo '<span class="ml-3 editSessionItem"><i class="fas fa-edit"></i></span>';
+                                                                                        echo '<span class="ml-3 addSessionItem"><i class="fas fa-plus"></i></span>';
+                                                                                        echo '<span class="ml-3 deleteSessionItem"><i class="fas fa-times"></i></span>';
+                                                                
+                                                                                    }
+                                                                                    ?>
+
+                </div>
+
+            </div>
+            <div class="row d-flex align-items-left text-left align-middle">
+                <div class="pl-3 pr-1 pb-0 pt-0 time">
+                    <span class="sessionDescription"><?php echo $value['sessionItemDescription'];?></span>
+
+                    <p class="pt-2 h6 faculty"><?php 
+                                                                                    
+                                                                                    $faculty = $sessionView->getFacultyName($value['faculty']);
+                                                                
+                                                                                    echo $faculty['title'] . ' ' . $faculty['firstname'] . ' ' . $faculty['surname'];
+                                                                                    
+                                                                                    
+                                                                                    ?></p>
+                </div>
+            </div>
+            <hr class="m-2">
+
+            <?php }?>
+
+        </div>
+
+        <div class="px-5 pt-2 mt-2 mb-2 pb-2 text-center">
+            <p class="text-muted text-sm"></p>
+        </div>
+    </div>
+    <div class="-footer">
+        <!-- <button type="button" class="btn btn-sm btn-secondary" data-dismiss="">Back to programme &nbsp;
+            &nbsp;<i class="fas fa-arrow-right"></i></button> -->
+    </div>
+</div>
+
+</form>
+</div>
+</div>
+
+
+<?php exit();?>
+
+
+<?php 
+
+                
+
+$general->endgeneral;
+$programme->endprogramme;
+$session->endsession;
+$faculty->endfaculty;
+$sessionItem->endsessionItem;
+$queries->endqueries;
+$sessionView>endsessionView;?>

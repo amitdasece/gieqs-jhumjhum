@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--META DATA-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="The Ghent International Endoscopy Symposium (GIEQs) is a digital endoscopy event and symposium focussed on promoting quality in endoscopy.  The content is focussed on simple endoscopic techniques that many practitioners are performing everyday"
+    />
+    <meta name="author" content="David Tate" />
+    <meta
+      name="keywords"
+      content="colonoscopy, gastroscopy, ERCP, quality, polyp, colon cancer, polypectomy, EMR, endoscopic imaging, colorectal cancer, endoscopy, gieqs, GIEQS, training, digital endoscopy event, digital symposium, ghent, gent, endoscopy quality, quality in endoscopy"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="<?php echo BASE_URL;?>/assets/img/brand/favicongieqs.png"
+      type="image/png"
+    />
+    <!-- Font Awesome 5 -->
+    <link
+      rel="stylesheet"
+      href="<?php echo BASE_URL;?>/assets/libs/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <!-- Page CSS -->
+    <link
+      rel="stylesheet"
+      href="<?php echo BASE_URL;?>/assets/libs/swiper/dist/css/swiper.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="<?php echo BASE_URL;?>/assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css"
+    />
+    <!--Extra CSS -->
+    <link
+      rel="stylesheet"
+      href="<?php echo BASE_URL;?>/assets/libs/select2/dist/css/select2.min.css"
+    />
+
+    <!-- <link rel="stylesheet" href="<?php echo BASE_URL;?>/assets/libs/select2/dist/css/select2bootstrap.min.css">
+     -->
+    <!-- Purpose CSS -->
+    <link
+      rel="stylesheet"
+      href="<?php echo BASE_URL;?>/assets/css/purpose.css"
+      id="stylesheet"
+    />
+
+    <link rel="stylesheet" href="<?php echo BASE_URL;?>/assets/css/gieqs.css" />
+
+    <!-- Global JS -->
+
+    <script src="<?php echo BASE_URL;?>/assets/js/purpose.core.js"></script>
+    <script src="<?php echo BASE_URL;?>/assets/libs/select2/dist/js/select2.min.js"></script>
+    <script src="<?php echo BASE_URL;?>/assets/js/purpose.js"></script>
+    <script src="<?php echo BASE_URL;?>/assets/js/generaljs.js"></script>
+    <script src="<?php echo BASE_URL;?>/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+
+    <!--Page title-->
+    <title>GIEQs Online Endoscopy Trainer</title>
+
+    <script src="<?php" echo BASE_URL;?>
+      /assets/js/jquery.vimeo.api.min.js>
+    </script>
+    <link
+      rel="stylesheet"
+      href="<?php echo BASE_URL;?>/assets/libs/animate.css/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="<?php echo BASE_URL;?>/assets/libs/sweetalert2/dist/sweetalert2.min.css"
+    />
+    <script src="<?php echo BASE_URL;?>/assets/libs/sweetalert2/dist/sweetalert2.min.js"></script>
+
+    <style>
+      .gieqsGold {
+        color: rgb(238, 195, 120);
+      }
+
+      .tagButton {
+        cursor: pointer;
+      }
+
+      .tagCard {
+        background-color: #1b385d75;
+      }
+
+      .tagCardHeader {
+        background-color: #162e4d;
+      }
+
+      .cursor-pointer {
+        cursor: pointer;
+      }
+
+      @media (min-width: 992px) {
+        .tagCard {
+          left: -50vw;
+          top: -20vh;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        #chapterSelectorDiv {
+          top: -3vh;
+        }
+        #playerContainer {
+          margin-top: -20px;
+        }
+        #collapseExample {
+          position: absolute;
+          max-width: 50vh;
+          z-index: 25;
+        }
+
+        #selectDropdown {
+          z-index: 25;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header header-transparent" id="header-main">
+      <!-- Topbar -->
+
+      <style>
+        .modal-backdrop {
+          opacity: 0.7 !important;
+        }
+      </style>
+
+      <!--Topbar-->
+      <div
+        id="navbar-top-main"
+        class="navbar-top navbar-dark bg-dark border-bottom navbar-collapsed"
+      >
+        <div class="container px-0">
+          <div class="navbar-nav align-items-center">
+            <div class="d-none d-lg-inline-block">
+              <span class="navbar-text mr-3"
+                >Ghent International Endoscopy Quality Symposium</span
+              >
+            </div>
+            <div>
+              <ul class="nav">
+                <!--<li class="nav-item dropdown ml-lg-2">
+                <a class="nav-link px-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="0,10">
+                  <img alt="Image placeholder" src="assets/img/icons/flags/us.svg">
+                  <span class="d-none d-lg-inline-block">United States</span>
+                  <span class="d-lg-none">EN</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-sm">
+                  <a href="#" class="dropdown-item"><img alt="Image placeholder" src="assets/img/icons/flags/es.svg">Spanish</a>
+                  <a href="#" class="dropdown-item"><img alt="Image placeholder" src="assets/img/icons/flags/ro.svg">Romanian</a>
+                  <a href="#" class="dropdown-item"><img alt="Image placeholder" src="assets/img/icons/flags/gr.svg">Greek</a>
+                </div>
+              </li>-->
+              </ul>
+            </div>
+            <div class="ml-auto">
+              <ul class="nav">
+                <!-- <li class="nav-item">
+                <a class="nav-link" href="pages/utility/support.html">Support</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" data-action="omnisearch-open" data-target="#omnisearch"><i class="fas fa-search"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/shop/checkout-cart.html"><i class="fas fa-shopping-cart"></i></a>
+              </li>
+            -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main navbar -->
+
+      <!--Main Navbar-->
+
+      <nav
+        class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-dark bg-dark"
+        id="navbar-main"
+      >
+        <div class="container px-lg-0">
+          <!-- Logo -->
+          <a
+            class="navbar-brand mr-lg-5"
+            href="<?php echo BASE_URL;?>/index.php"
+          >
+            <img
+              alt="Image placeholder"
+              src="<?php echo BASE_URL;?>/assets/img/brand/gieqs.png"
+              id="navbar-logo"
+              style="height: 50px;"
+            />
+          </a>
+          <!-- Navbar collapse trigger -->
+          <button
+            class="navbar-toggler pr-0"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar-main-collapse"
+            aria-controls="navbar-main-collapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navbar nav -->
+          <div class="collapse navbar-collapse" id="navbar-main-collapse"></div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="main-content">
+      <div class="container h-100vh d-flex align-items-center">
+        <div class="col">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-9 col-xl-8 mt-5">
+              <div>
+                <div class="mb-5 text-center">
+                  <h6 class="h3">
+                    Sorry something went wrong. <br />We don't recognise that
+                    page!
+                  </h6>
+                  <p class="text-muted mt-2 mb-0">
+                    <a href="<?php echo BASE_URL;?>"
+                      >Don't worry, there's much more to discover here.</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

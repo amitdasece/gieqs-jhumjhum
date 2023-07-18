@@ -1,0 +1,20 @@
+{
+    "require": {
+        "php": ">=7.4",
+        "phpmailer/phpmailer": "^6.1",
+        "facebook/php-sdk": "^3.2",
+        "facebook/graph-sdk": "^5.7",
+        "vimeo/vimeo-api": "^3.0",
+        "league/oauth2-google": "^3.0",
+        "google/apiclient": "^2.6",
+        "swiftmailer/swiftmailer": "^6.0",
+        "league/omnipay": "^3",
+        "omnipay/paypal": "^3.0",
+        "paypal/rest-api-sdk-php": "^1.14",
+        "chillerlan/php-qrcode": "^2.0",
+        "stripe/stripe-php": "^7.79",
+        "slim/slim": "^4.8",
+        "setasign/fpdi": "^2.3",
+        "setasign/fpdf": "^1.8"
+    }
+}

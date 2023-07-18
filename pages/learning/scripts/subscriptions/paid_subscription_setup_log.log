@@ -1,0 +1,225 @@
+Session id is (from Stripe)cs_test_a1GADu86yvuBSRn9eyDCA5mYVHWA6oZMxvS9Eer0wCBT7rsmapMUjVycTy
+ - New Payment Detected
+ - Current action involves subscription id 12033 and 165 EUR
+ - Subscription 12033opened for editing
+ - Subscription activated 12033
+ - Proceeding to determine user and assets for sub id 12033
+ - Payment is successful. Your transaction id is: 
+ - Asset is NOT being renewed
+ - Asset is a symposium registration
+ - Symposium id recognised for user 13 as 73
+ - Updated symposium as full registration
+ - Detected that the user included GIEQs PRO 
+ - New subscription (sitewide) setup with id 12034
+ - Giving pro assets in symposium context
+ - User no 13 already owns asset 15 - User no 13 does not currently own asset 3 - User no 13 granted access to assetid 3. New subscription no = 12035 - User no 13 already owns asset 133 - User no 13 already owns asset 101 - User no 13 already owns asset 94 - User no 13 already owns asset 90 - User no 13 already owns asset 89 - User no 13 already owns asset 84 - User no 13 already owns asset 83 - User no 13 already owns asset 55 - User no 13 already owns asset 17 - User no 13 already owns asset 14 - User no 13 already owns asset 11 - User no 13 already owns asset 8 - User no 13 already owns asset 7 - User no 13 already owns asset 100 - User no 13 already owns asset 10 - Array
+Session id is (from Stripe)cs_test_a17Y3Ji4IlOlSq6iPWXWPsMSSDVc0iZisWvbYj7UxqNDUQxi5BlbyHQYmm
+ - New Payment Detected
+ - Current action involves subscription id 12037 and 250 EUR
+ - Subscription 12037opened for editing
+ - Subscription activated 12037
+ - Proceeding to determine user and assets for sub id 12037
+ - Payment is successful. Your transaction id is: 
+ - Asset is NOT being renewed
+ - Asset is a symposium registration
+ - Symposium id recognised for user 13 as 73
+ - Updated symposium as full registration
+ - Detected that the user included GIEQs PRO 
+ - New subscription (sitewide) setup with id 12038
+ - Giving pro assets in symposium context
+ - User no 13 already owns asset 15 - User no 13 does not currently own asset 3 - User no 13 granted access to assetid 3. New subscription no = 12039 - User no 13 already owns asset 133 - User no 13 already owns asset 101 - User no 13 already owns asset 94 - User no 13 already owns asset 90 - User no 13 already owns asset 89 - User no 13 does not currently own asset 84 - User no 13 granted access to assetid 84. New subscription no = 12040 - User no 13 already owns asset 83 - User no 13 does not currently own asset 55 - User no 13 granted access to assetid 55. New subscription no = 12041 - User no 13 already owns asset 17 - User no 13 already owns asset 14 - User no 13 already owns asset 11 - User no 13 already owns asset 8 - User no 13 already owns asset 7 - User no 13 already owns asset 100 - User no 13 already owns asset 10 - Array
+
+ New Log, at 2022-09-18 11:23:27
+Session id is (from Stripe)cs_test_a1fu29KBLic4fcPVJPCbVkFKq7un2fSuTz0BJhIMc6QFjQocwM8moEWJIT
+ - New Payment Detected
+ - Current action involves subscription id 12042 and 250 EUR
+ - Subscription 12042opened for editing
+ - Subscription activated 12042
+ - Proceeding to determine user and assets for sub id 12042
+ - Payment is successful. Your transaction id is: 
+ - Asset is NOT being renewed
+ - Asset is a symposium registration
+ - Symposium id recognised for user 13 as 73
+ - Updated symposium as full registration
+ - Detected that the user included GIEQs PRO 
+ - detected a sitewide subscription with id 12038
+ - Old GIEQs Online subscription ID #12038 was cancelled and prorata refund requested via Stripe.  Please verify you have received a refund.
+ - New subscription (sitewide) setup with id 12043
+ - Giving pro assets in symposium context
+ - User no 13 already owns asset 15 - User no 13 does not currently own asset 3 - User no 13 granted access to assetid 3. New subscription no = 12044 - User no 13 already owns asset 133 - User no 13 already owns asset 101 - User no 13 already owns asset 94 - User no 13 already owns asset 90 - User no 13 already owns asset 89 - User no 13 already owns asset 84 - User no 13 already owns asset 83 - User no 13 already owns asset 55 - User no 13 already owns asset 17 - User no 13 already owns asset 14 - User no 13 already owns asset 11 - User no 13 already owns asset 8 - User no 13 already owns asset 7 - User no 13 already owns asset 100 - User no 13 already owns asset 10 - Array
+
+ New Log, at 2022-09-18 11:28:07
+Session id is (from Stripe)cs_test_a1rJz5YW2MlbmURZemrd3CHqs2YXP6ZHa56GzKiJmrLBBuPPVQ28XkjCe9
+ - New Payment Detected
+ - Current action involves subscription id 12045 and 250 EUR
+ - Subscription 12045 opened for editing
+ - Subscription activated 12045
+ - Proceeding to determine user and assets for sub id 12045
+ - Payment is successful. Your transaction id is: pi_3LjLf1EBnLMnXjog16YTWNJA
+ - Asset is NOT being renewed
+ - Asset is a symposium registration
+ - Symposium id recognised for user 13 as 73
+ - Updated symposium as full registration
+ - Detected that the user included GIEQs PRO 
+ - detected a sitewide subscription with id 12043
+ - Old GIEQs Online subscription ID #12043 was cancelled and prorata refund requested via Stripe.  Please verify you have received a refund.
+ - New subscription (sitewide) setup with id 12046
+ - Giving pro assets in symposium context
+ - User no 13 already owns asset 15 - User no 13 already owns asset 3 - User no 13 already owns asset 133 - User no 13 already owns asset 101 - User no 13 already owns asset 94 - User no 13 already owns asset 90 - User no 13 already owns asset 89 - User no 13 already owns asset 84 - User no 13 already owns asset 83 - User no 13 already owns asset 55 - User no 13 already owns asset 17 - User no 13 already owns asset 14 - User no 13 already owns asset 11 - User no 13 already owns asset 8 - User no 13 already owns asset 7 - User no 13 already owns asset 100 - User no 13 already owns asset 10 - D - TATE - djtate@me.com - 95 - 12045 - GIEQs III - GIEQs Congress Subscription - 3 - 29/12/2022 - 250 EUR - mkpPPlTqn7 - pi_3LjLf1EBnLMnXjog16YTWNJA - Your congress subscription was successful!  Thank you for your support of GIEQs - Doctor - Included.  Subscription id # 12046. Starts 18-09-2022 Ends 18-09-2023. Old GIEQs Online subscription ID #12043 was cancelled and prorata refund requested via Stripe.  Please verify you have received a refund. - 18/09/2022
+
+ New Log, at 2022-09-18 11:31:23
+Session id is (from Stripe)cs_test_a19RO4wGcJ6pe9ZkvigUcXIlSYLKaBywQxl37RUf2TcKCD9VxoSejHTMuo
+ - New Payment Detected
+ - Current action involves subscription id 12047 and 250 EUR
+ - Subscription 12047 opened for editing
+ - Subscription activated 12047
+ - Proceeding to determine user and assets for sub id 12047
+ - Payment is successful. Your transaction id is: pi_3LjLiIEBnLMnXjog0LPRbU5x
+ - Asset is NOT being renewed
+ - Asset is a symposium registration
+ - Symposium id recognised for user 13 as 73
+ - Updated symposium as full registration
+ - Detected that the user included GIEQs PRO 
+ - detected a sitewide subscription with id 12046
+ - Old GIEQs Online subscription ID #12046 was cancelled and prorata refund requested via Stripe.  Please verify you have received a refund.
+ - New subscription (sitewide) setup with id 12048
+ - Giving pro assets in symposium context
+ - User no 13 already owns asset 15
+ - User no 13 does not currently own asset 3
+ - User no 13 granted access to assetid 3. New subscription no = 12049
+ - User no 13 already owns asset 133
+ - User no 13 already owns asset 101
+ - User no 13 already owns asset 94
+ - User no 13 already owns asset 90
+ - User no 13 already owns asset 89
+ - User no 13 already owns asset 84
+ - User no 13 already owns asset 83
+ - User no 13 already owns asset 55
+ - User no 13 already owns asset 17
+ - User no 13 already owns asset 14
+ - User no 13 already owns asset 11
+ - User no 13 already owns asset 8
+ - User no 13 already owns asset 7
+ - User no 13 already owns asset 100
+ - User no 13 already owns asset 10
+ - D
+ - TATE
+ - djtate@me.com
+ - 95
+ - 12047
+ - GIEQs III
+ - GIEQs Congress Subscription
+ - 3
+ - 29/12/2022
+ - 250 EUR
+ - mkpPPlTqn7
+ - pi_3LjLiIEBnLMnXjog0LPRbU5x
+ - Your congress subscription was successful!  Thank you for your support of GIEQs
+ - Doctor
+ - Included.  Subscription id # 12048. Starts 18-09-2022 Ends 18-09-2023. Old GIEQs Online subscription ID #12046 was cancelled and prorata refund requested via Stripe.  Please verify you have received a refund.
+ - 18/09/2022
+
+
+ New Log, at 2022-09-18 11:35:44
+Session id is (from Stripe)cs_test_a1CfOrcnWxx7nCtkqthhSkKPAosXtDvD2GD72yLL9YEDRVbeRrNmc5fJDS
+ - New Payment Detected
+ - Current action involves subscription id 12050 and 250 EUR
+ - Subscription 12050 opened for editing
+ - Subscription activated 12050
+ - Proceeding to determine user and assets for sub id 12050
+ - Payment is successful. Your transaction id is: pi_3LjLmOEBnLMnXjog0UXvSdWf
+ - Asset is NOT being renewed
+ - Asset is a symposium registration
+ - Symposium id recognised for user 13 as 73
+ - Updated symposium as full registration
+ - Detected that the user included GIEQs PRO 
+ - detected a sitewide subscription with id 12048
+ - Old GIEQs Online subscription ID #12048 was cancelled and prorata refund requested via Stripe.  Please verify you have received a refund.
+ - New subscription (sitewide) setup with id 12051
+ - Giving pro assets in symposium context
+ - User no 13 already owns asset 15
+ - User no 13 already owns asset 3
+ - User no 13 already owns asset 133
+ - User no 13 already owns asset 101
+ - User no 13 already owns asset 94
+ - User no 13 already owns asset 90
+ - User no 13 already owns asset 89
+ - User no 13 already owns asset 84
+ - User no 13 already owns asset 83
+ - User no 13 already owns asset 55
+ - User no 13 already owns asset 17
+ - User no 13 already owns asset 14
+ - User no 13 already owns asset 11
+ - User no 13 already owns asset 8
+ - User no 13 already owns asset 7
+ - User no 13 already owns asset 100
+ - User no 13 already owns asset 10
+ - D
+ - TATE
+ - djtate@me.com
+ - 95
+ - 12050
+ - GIEQs III
+ - GIEQs Congress Subscription
+ - 3
+ - 29/12/2022
+ - 250 EUR
+ - mkpPPlTqn7
+ - pi_3LjLmOEBnLMnXjog0UXvSdWf
+ - Your congress subscription was successful!  Thank you for your support of GIEQs
+ - Doctor
+ - Included.  Subscription id # 12051. Starts 18-09-2022 Ends 18-09-2023. Old GIEQs Online subscription ID #12048 was cancelled and prorata refund requested via Stripe.  Please verify you have received a refund.
+ - 18/09/2022
+
+
+ New Log, at 2022-09-18 11:42:36
+Session id is (from Stripe)cs_live_a1qLAqXOqoREphEVrq9aStxuV85BHZpkz0sZJBciiUf9lWIgzFvF5MvK7N
+ - New Payment Detected
+ - Current action involves subscription id 12052 and 250 EUR
+ - Subscription 12052 opened for editing
+ - Subscription activated 12052
+ - Proceeding to determine user and assets for sub id 12052
+ - Payment is successful. Your transaction id is: pi_3LjLt8EBnLMnXjog1k6FBG14
+ - Asset is NOT being renewed
+ - Asset is a symposium registration
+ - Symposium id recognised for user 13 as 73
+ - Updated symposium as full registration
+ - Detected that the user included GIEQs PRO 
+ - detected a sitewide subscription with id 12051
+ - Old GIEQs Online subscription ID #12051 was cancelled and prorata refund requested via Stripe.  Please verify you have received a refund.
+ - New subscription (sitewide) setup with id 12053
+ - Giving pro assets in symposium context
+ - User no 13 already owns asset 15
+ - User no 13 already owns asset 3
+ - User no 13 already owns asset 133
+ - User no 13 already owns asset 101
+ - User no 13 already owns asset 94
+ - User no 13 already owns asset 90
+ - User no 13 already owns asset 89
+ - User no 13 already owns asset 84
+ - User no 13 already owns asset 83
+ - User no 13 already owns asset 55
+ - User no 13 already owns asset 17
+ - User no 13 already owns asset 14
+ - User no 13 already owns asset 11
+ - User no 13 already owns asset 8
+ - User no 13 already owns asset 7
+ - User no 13 already owns asset 100
+ - User no 13 already owns asset 10
+ - firstname - D
+ - surname - TATE
+ - email - djtate@me.com
+ - assetid - 95
+ - subscription_id - 12052
+ - asset_name - GIEQs III
+ - asset_type - GIEQs Congress Subscription
+ - renew_frequency - 3
+ - expiry_date - 29/12/2022
+ - cost - 250 EUR
+ - key - mkpPPlTqn7
+ - gateway_transactionId - pi_3LjLt8EBnLMnXjog1k6FBG14
+ - preheader - Your congress subscription was successful!  Thank you for your support of GIEQs
+ - registrationType - Doctor
+ - includeGIEQsPro - Included.  Subscription id # 12053. Starts 18-09-2022 Ends 18-09-2023. Old GIEQs Online subscription ID #12051 was cancelled and prorata refund requested via Stripe.  Please verify you have received a refund.
+ - start_date - 18/09/2022
+

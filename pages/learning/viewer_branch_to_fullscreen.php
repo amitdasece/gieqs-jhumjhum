@@ -1,0 +1,778 @@
+
+
+<?php require 'includes/config.inc.php';?>
+
+
+<head>
+
+    <?php
+
+//error_reporting(E_ALL);
+
+
+      //define user access level
+
+      $openaccess = 1;
+
+      require BASE_URI . '/pages/learning/includes/head.php';
+
+      $general = new general;
+
+      ?>
+
+    <!--Page title-->
+    <title>GIEQs Online Endoscopy Trainer</title>
+
+    <script src=<?php echo BASE_URL . "/assets/js/jquery.vimeo.api.min.js"?>></script>
+    
+
+    <style>
+        .gieqsGold {
+
+            color: rgb(238, 194, 120);
+
+
+        }
+
+        .tagButton {
+
+            cursor: pointer;
+
+        }
+
+        .tagCard {
+
+background-color: #1b385d75; 
+
+
+
+}
+
+        
+
+        iframe {
+  box-sizing: border-box;
+    height: 25.25vw;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    width: 100.77777778vh;
+}
+.cursor-pointer {
+
+    cursor: pointer;
+
+}
+
+@media (min-width: 992px) {
+    .tagCard {
+
+            
+left: -50vw;
+
+
+}
+}
+
+@media (min-width: 1200px) {
+        #chapterSelectorDiv{
+
+            
+                
+                top:-3vh;
+            
+
+        }
+        #playerContainer{
+
+                margin-top:-20px;
+
+        }
+        #collapseExample {
+
+            position: absolute; 
+            max-width: 50vh; 
+            z-index: 25;
+        }
+
+        #selectDropdown {
+
+            
+            z-index: 25;
+            }
+
+            
+
+}
+    </style>
+
+
+</head>
+
+<body>
+    <header class="header header-transparent" id="header-main">
+
+        <!-- Topbar -->
+
+        <?php require BASE_URI . '/pages/learning/includes/topbar.php';?>
+
+        <!-- Main navbar -->
+
+        <?php require BASE_URI . '/pages/learning/includes/nav.php';?>
+
+        
+
+
+    </header>
+
+    <?php
+		if (isset($_GET["id"]) && is_numeric($_GET["id"])){
+			$id = $_GET["id"];
+		
+		}else{
+		
+			$id = null;
+		
+		}
+				        if ($id){
+		
+							$q = "SELECT  `id`  FROM  `video`  WHERE  `id`  = $id";
+							if ($general->returnYesNoDBQuery($q) != 1){
+                                echo '<div class="container mt-10 mb-10">';
+                                echo "Passed id does not exist in the database";
+								echo '</div>';
+								include(BASE_URI . "/footer.php");
+								exit();
+		
+							}
+						}else {
+							echo '<div class="container mt-10 mb-10">';
+							echo "This page requires the id of a video existing in the database to be passed";
+							echo '</div>';
+							include(BASE_URI . "/footer.php");
+							exit();
+							
+                        }
+                        
+                        
+		
+        ?>
+        
+        <!-- load all video data -->
+
+        <div id="id" style="display:none;"><?php if ($id){echo $id;}?></div>
+
+
+
+        <div id="vimeoid" style="display:none;"><?php echo $general->getVimeoID($id);?></div>
+
+					<div id="videoChapterData" style="display:none;"><?php echo $general->getVideoAndChapterDatav1($id);?>
+					</div>
+
+					<div id="videoChapterTagData" style="display:none;"><?php echo $general->getVideoAndChapterData($id);?>
+					</div>
+
+                    <div id="videoData" style="display:none;"><?php echo $general->getVideoData($id);?></div>
+                    
+                    <div id="tagsData" style="display:none;"><?php echo $general->getTagsVideo($id);?></div>
+
+                    <div id="tagCategories" style="display:none;"><?php $allCategories = $general->getAllTagCategories(); print_r($allCategories);?></div>
+
+
+                    <!--CONSTRUCT TAG DISPLAY-->
+
+                    <!--GET TAG CATEGORY NAME 
+                    
+                    <?php
+
+                        $tagBox = null;
+
+                        foreach ($allCategories as $key=>$value){
+
+                            //display the header only if a match
+
+                            //database query, is there a tag in this category associated with this video
+
+                            if ($general->isThisTagCategoryRepresentedInVideo($id, $value['id'])){
+
+                                $tagBox .= '<div class="row align-items-left">';
+                                    
+                                    $tagBox .= '<span class="h6 mt-2"> ' . $value['tagCategoryName'] . '</span>';
+
+                                    $tagsRequired = $general->getTagsVideoWithCategoryNonJSON($id);
+
+                                    //print_r($tagsRequired);
+
+                                    $tagBox .=  '</div>';
+                                    
+                                    $tagBox .= '<div class="row align-items-left">';
+
+                                    foreach ($tagsRequired as $key1=>$value1){
+
+                                        if ($value1['tagCategories_id'] == $value['id']){
+
+                                           $tagBox .= '<span class="badge badge-info mx-2 my-2 tagButton" id="tag' . $value1['id'] . '">' . $value1['tagName'] . '</span>'; 
+
+                                        }
+
+                                    }
+
+                                    
+
+                                $tagBox .=  '</div>';
+
+                                //$('#tagsDisplay').append('<span class="badge badge-info mx-2 my-2 tagButton" id="tag' + id + '">' + tagName + '</span>');
+
+                                //echo $tagBox;
+
+                            }else{
+
+                                continue;
+                            }
+                            //if so display the card section
+
+                            //if not continue
+                            //look in the tagsVideo array
+                            //check if any match 
+
+                            
+
+
+                        }
+
+
+?>
+                    
+                TODO see other videos with similar tags, see videos with this tag, tag jump the video,
+                list of chapters with associated tags [toggle view by category, chapter]
+                
+                -->
+
+
+    <!-- Omnisearch -->
+    <div id="omnisearch" class="omnisearch">
+        <div class="container">
+            <!-- Search form -->
+            <form class="omnisearch-form">
+                <div class="form-group">
+                    <div class="input-group input-group-merge input-group-flush">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Type and hit enter ...">
+                    </div>
+                </div>
+            </form>
+            <div class="omnisearch-suggestions">
+                <h6 class="heading">Search Suggestions</h6>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a class="list-link" href="#">
+                                    <i class="fas fa-search"></i>
+                                    <span>macbook pro</span> in Laptops
+                                </a>
+                            </li>
+                            <li>
+                                <a class="list-link" href="#">
+                                    <i class="fas fa-search"></i>
+                                    <span>iphone 8</span> in Smartphones
+                                </a>
+                            </li>
+                            <li>
+                                <a class="list-link" href="#">
+                                    <i class="fas fa-search"></i>
+                                    <span>macbook pro</span> in Laptops
+                                </a>
+                            </li>
+                            <li>
+                                <a class="list-link" href="#">
+                                    <i class="fas fa-search"></i>
+                                    <span>beats pro solo 3</span> in Headphones
+                                </a>
+                            </li>
+                            <li>
+                                <a class="list-link" href="#">
+                                    <i class="fas fa-search"></i>
+                                    <span>smasung galaxy 10</span> in Phones
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content bg-gradient-dark">
+
+    
+
+        <div class="d-flex align-items-end">
+            <div class="container-flush mt-10 mt-lg-10 pt-4 pt-lg-4 pl-2 pr-2">
+            <nav aria-label="breadcrumb" class="mb-3">
+                            <ol class="breadcrumb breadcrumb-links p-0 m-0">
+                                <li class="breadcrumb-item"><a href="<?php echo BASE_URL . '/pages/learning/navigator.php'?>">GIEQs online</a></li>
+                                <li class="breadcrumb-item"><a href="<?php echo BASE_URL . '/pages/learning/navigator.php'?>">Referring Search Page</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Video Viewer</li>
+                            </ol>
+                        </nav>
+                        <div class="row" style="margin-right:15px; margin-left:15px;">
+                        <div class="col-3"></div>
+                        <span class="h3 mb-0 text-white col-9"><?php echo $general->getVideoTitle($id)?></span>
+                        <div class="col-3"></div>
+                        <div>
+                        <div class="row" style="margin-right:15px; margin-left:15px;">
+                        <div class="col-3"></div>
+                        <span class="text-muted text-md d-block my-2 col-9" id="videoDescription">Video subtitle</span>
+                        <div class="col-3"></div>
+                   
+                    </div>
+
+                <div class="row">
+                    <div class="col-lg-6 mb-0 mb-lg-0 pl-lg-5">
+                        
+                       
+                        <div class="col text-left mt-0 align-items-center">
+                                                    <div class="actions">
+                                                        <a class="action-item p-0 m-0 pr-4 likes"><i
+                                                                class="fas fa-heart mr-1 pr-1"></i> <span id="likesNumber">50</span></a>
+                                                        <a class="action-item p-0 m-0 pr-4 views"><i class="fas fa-eye mr-1"></i> <span id="viewsNumber">250</span></a>
+                                                            <a class="action-item p-0 m-0 pr-4"><i class="fas fa-user mr-1"></i>
+                                                            <span id="videoAuthor"></span></a>
+                                                    </div>
+                                                </div>
+</div>
+                            <div class="col-lg-3 mb-0 mb-lg-0 align-self-center">
+                                <div class="text-right ">
+                                
+                                                        
+                                                    
+                                    <a class="dropdown-item" data-toggle="collapse" href="#collapseExample"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        <i class="fas fa-chevron-circle-up"></i> show tags
+                                    </a>
+                                    
+
+</div>
+                                <div class="collapse mb-0" id="collapseExample">
+                                    <div class="card mb-0 tagCard">
+                                    <div class="card-header mb-0">
+                        <span class="h6">Tags <br/></span><span class="text-sm">(click to filter)</span><span class="text-sm text-right"> <a style="float:right;" class="cursor-pointer" onclick="undoFilterByTag();"><i class="fas fa-undo"></i> Undo</a></span>
+                    </div>
+                                        <div class="card-body mt-0 pt-0">
+                                            
+                                                <div id="tagsDisplay">
+                                                <?php echo $tagBox;?>
+                                                </div>
+                                                
+                                            
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="collapse card mb-0 p-2 flex-row"  id="selectDropdown">
+                            <div class="container">
+                                <div class="row">
+                                <span class="mb-0 pl-2 pt-2 flex-grow-1">Choose chapter</span>
+                                <button type="button" class="close text-right" data-toggle="collapse" href="#selectDropdown" aria-label="Close">
+                              <span>&times;</span>
+                            </button>
+                    </div>
+                    <div class="row">
+                                <?php
+                                if ($currentUserLevel == 1){}?>
+                                <?php echo $general->getChapterSelector($id);?>
+                    </div>
+                    </div>
+                            </div>
+                    </div>
+                    <div id='chapterSelectorDiv' class="col-xl-3 mb-0 mb-lg-0 mt-2 py-0 text-center vertical-align-top">
+
+                        <div class="card mb-0">
+                            <div class="card-header" style="    padding-right: 0.5em;
+    padding-left: 1.5em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;">
+                                <div class="d-flex justify-content-between align-items-center p-0">
+                                    <div>
+                                        <h6 class="mb-0">Chapter Navigation</h6>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="actions">
+                                            <a href="#" class="action-item"><i class="fas fa-sync" data-toggle="tooltip" data-placement="bottom" title="restart video"></i></a>
+
+                                            <a class="action-item" data-toggle="collapse" href="#selectDropdown"><i
+                                                    class="fas fa-ellipsis-h" data-toggle="tooltip" data-placement="bottom" title="show chapters"></i></a>
+
+                                            <?php if ($isSuperuser == 1){?>
+                                            
+                                            <a href="<?php echo BASE_URL; ?>/pages/learning/scripts/forms/videoChapterForm.php?id=<?php echo $id;?>" class="action-item"><i class="fas fa-edit" data-toggle="tooltip" data-placement="bottom" title="edit video"></i></a>
+
+                                            <?php }?>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="list-group">
+
+
+                                <a class="list-group-item p-0">
+
+                                    <div class="d-flex align-items-center justify-content-between">
+
+                                        <div class="flex-fill p-2 text-limit">
+                                            <h6 id="chapterHeadingControl" class="progress-text mb-1 text-sm d-block text-limit text-left">No chapter selected
+                                            </h6>
+                                            <div id="myProgress" class="progress progress-xs mb-0">
+                                                <div id="myBar" class="progress-bar bg-gieqsGold" role="progressbar"
+                                                    style="width: 60%;" aria-valuenow="60" aria-valuemin="0"
+                                                    aria-valuemax="100"></div>
+                                            </div>
+                                            <div
+                                                class="d-flex justify-content-between text-xs text-muted text-right mt-1">
+                                                
+                                                <div>
+                                                    <i id='video-back' class="fas fa-step-backward cursor-pointer"></i>
+                                                </div>
+                                                <div>
+                                                    <i id='video-start-pause' class="fas fa-play cursor-pointer"></i>
+                                                </div>
+                                                <div>
+                                                    <i id='video-stop' class="fas fa-stop cursor-pointer"></i>
+                                              </div>
+                                                <div>
+                                                <i id='video-forward' class="fas fa-step-forward cursor-pointer"></i>
+                                                </div>
+                                                <div>
+                                                    <span id='currentChapterTime'></span>
+
+                                                </div>
+                                            
+                                                
+                                               <!--  <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                    <label class="custom-control-label" for="customCheck1"></label>
+                                                </div> -->
+                                                
+                                                <div class="font-weight-bold gieqsGold">
+                                                    <span id="currentChapter">x</span> / <span id="totalChapters">y</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    
+
+
+
+
+    <div id="playerContainer" class="d-flex align-items-end" style="padding-left:15px; padding-right:15px;">
+        <div class="container mt-2 mb-2 py-0">
+            <div class="row">
+                <div class="col-lg-9 mb-0 mb-lg-0 pr-lg-3">
+
+
+               
+            <div style="container">
+            <div id="videoDisplay" class="embed-responsive embed-responsive-16by9">
+                    <iframe  id='videoChapter' class="embed-responsive-item" style="left:50%; top:50%;"
+                        src='https://player.vimeo.com/video/398791515' allow='autoplay'
+                        webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        </div>
+                </div>
+</div>
+                <div class="card p-0 col-lg-3 bg-dark mt-2 mt-lg-0 mb-0 mb-lg-0 text-center vertical-align-center">
+                <div class="card-header" style="padding-right: 0.5em;
+    padding-left: 0.5em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;">
+                    <span id="chapterHeading" class="h6 mb-0 text-white d-block">No chapter selected</span>
+</div>
+<div class="card-body" style="padding-right: 0.2em;
+    padding-left: 0.2em;
+    padding-bottom: 0.2em;
+  
+    padding-top: 0.5em; max-height: 40vh; overflow-y: scroll;">
+                    <span id="chapterDescription" class="mt-2 p-2 d-block text-left"></span>
+</div>
+<div class="card-footer tagFilterDisplayArea">
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex align-items-end bg-gradient-dark">
+        <div class="container mt-4 pt-0 pt-lg-0">
+            <div class="row">
+                <div class="col-lg-9 mb-0 mb-lg-0">
+                    <p class="text-left d-flex align-items-left">
+                    <a class="dropdown-item" data-toggle="collapse" href="#collapseExamplenotyet" aria-expanded="false"
+                            aria-controls="collapseExample2">
+                            <i class="fas fa-chevron-circle-up"></i> show histopathology result
+                        </a>
+                        <a class="dropdown-item" data-toggle="collapse" href="#collapseExample2" aria-expanded="false"
+                            aria-controls="collapseExample3">
+                            <i class="fas fa-chevron-circle-up"></i> show references
+                        </a>
+                        <a class="dropdown-item" data-toggle="collapse" href="#collapseExample3" aria-expanded="false"
+                            aria-controls="collapseExample3">
+                            <i class="fas fa-chevron-circle-up"></i> show comments
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapseExample2">
+                        <div class="card">
+                            <div class="card-footer">
+                                <div class="flex-row">
+                                    
+                                    <div>
+                                        <?php echo $general->getFullReferenceListVideo($id);?>
+                                        <!-- 
+                                        <span class="badge badge-primary mx-2">
+                                            ref 1
+                                        </span>
+                                        <span class="badge badge-primary mx-2">
+                                            ref 2
+                                        </span>
+                                    
+                                    
+                                    -->
+                                    </div>
+                                    <div class="text-right text-right">
+                                        <div class="actions">
+
+                                            <a href="#" class="action-item"><i class="fas fa-info mr-1"></i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapseExample3">
+                        <dic class="card">
+                            <div class="card-footer">
+                                <div class="row align-items-left">
+                                    <div class="col">
+                                        <span class="badge badge-primary mx-2">
+                                            comment 1
+                                        </span>
+                                        <span class="badge badge-primary mx-2">
+                                            comment 2
+                                        </span>
+                                    </div>
+                                    <div class="col text-right text-right">
+                                        <div class="actions">
+                                            <a href="#" class="action-item"><i class="fas fa-info mr-1"></i></a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+
+    </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="registerInterest" tabindex="-1" role="dialog" aria-labelledby="registerInterestLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerInterestLabel" style="color: rgb(238, 194, 120);">Thank-you for
+                        your interest in GIEQs</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="text-white" aria-hidden="false">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span class="h6">Registration will open in late January 2020. <br /> </span><span>Prior to this you
+                        can register your interest below and we will keep you updated on everything GIEQs.</span>
+                    <hr>
+                    <form id='pre-register'>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <div class="input-group mb-3">
+                                <input type="text" name="name" id="name" class="form-control"
+                                    placeholder="please enter your name">
+                            </div>
+                            <label for="email">Email address:</label>
+                            <div class="input-group mb-3">
+                                <input type="email" name="email" id="email" class="form-control"
+                                    placeholder="please enter your email address">
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                    <span>Your email address will only be used to update you on GIEQs</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-small btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="submitPreRegister" type="button" class="btn-small text-black"
+                        style="background-color: rgb(238, 194, 120);">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php require BASE_URI . '/footer.php';?>
+
+    <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
+    <!-- <script src="assets/js/purpose.core.js"></script> -->
+    <!-- Page JS -->
+    <script src="assets/libs/swiper/dist/js/swiper.min.js"></script>
+    <script src="assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="assets/libs/typed.js/lib/typed.min.js"></script>
+    <script src="assets/libs/isotope-layout/dist/isotope.pkgd.min.js"></script>
+    <script src="assets/libs/jquery-countdown/dist/jquery.countdown.min.js"></script>
+    <!-- Google maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBuyKngB9VC3zgY_uEB-DKL9BKYMekbeY"></script>
+    <!-- Purpose JS -->
+    <script src="../../assets/js/purpose.js"></script>
+    <!-- <script src="assets/js/generaljs.js"></script> -->
+    <script src="assets/js/demo.js"></script>
+    <script>
+    var videoPassed = $("#id").text();
+                    </script>
+
+    <script src=<?php echo BASE_URL . "/pages/learning/includes/endowiki-player.js"?>></script>
+    <script>
+        var signup = $('#signup').text();
+
+        function submitPreRegisterForm() {
+
+            var esdLesionObject = pushDataFromFormAJAX("pre-register", "preRegister", "id", null,
+            "0"); //insert new object
+
+            esdLesionObject.done(function (data) {
+
+                console.log(data);
+
+                var dataTrim = data.trim();
+
+                console.log(dataTrim);
+
+                if (dataTrim) {
+
+                    try {
+
+                        dataTrim = parseInt(dataTrim);
+
+                        if (dataTrim > 0) {
+
+                            alert("Thank you for your details.  We will keep you updated on everything GIEQs.");
+                            $("[data-dismiss=modal]").trigger({
+                                type: "click"
+                            });
+
+                        }
+
+                    } catch (error) {
+
+                        //data not entered
+                        console.log('error parsing integer');
+                        $("[data-dismiss=modal]").trigger({
+                            type: "click"
+                        });
+
+
+                    }
+
+                    //$('#success').text("New esdLesion no "+data+" created");
+                    //$('#successWrapper').show();
+                    /* $("#successWrapper").fadeTo(4000, 500).slideUp(500, function() {
+                      $("#successWrapper").slideUp(500);
+                    });
+                    edit = 1;
+                    $("#id").text(data);
+                    esdLesionPassed = data;
+                    fillForm(data); */
+
+
+
+
+                } else {
+
+                    alert("No data inserted, try again");
+
+                }
+
+
+            });
+        }
+
+        $(document).ready(function () {
+
+            
+
+
+            $(document).click(function(event) { 
+                $target = $(event.target);
+                
+                if(!$target.closest('#collapseExample').length && 
+                    $('#collapseExample').is(":visible")) {
+                        $('#collapseExample').collapse('hide');
+                    }        
+            });
+
+            $(document).click(function(event) { 
+                $target = $(event.target);
+                
+                if(!$target.closest('#selectDropdown').length && 
+                    $('#selectDropdown').is(":visible")) {
+                        $('#selectDropdown').collapse('hide');
+                    }        
+            });
+
+            $(document).click(function(event) { 
+                $target = $(event.target);
+                
+                if(!$target.closest('#collapseExample2').length && 
+                    $('#collapseExample2').is(":visible")) {
+                        $('#collapseExample2').collapse('hide');
+                    }        
+            });
+
+            $(document).click(function(event) { 
+                $target = $(event.target);
+                
+                if(!$target.closest('#collapseExample3').length && 
+                    $('#collapseExample3').is(":visible")) {
+                        $('#collapseExample3').collapse('hide');
+                    }        
+            });
+
+
+        })
+    </script>
+</body>
+
+</html>

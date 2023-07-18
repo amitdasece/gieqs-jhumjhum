@@ -1,0 +1,289 @@
+<?php
+
+$openaccess =1;
+			//$requiredUserLevel = 4;
+			require ('../../../assets/includes/config.inc.php');		
+			
+			require (BASE_URI.'/assets/scripts/headerScript.php');
+
+            $general = new general;
+            $programme = new programme;
+            $session = new session;
+            $faculty = new faculty;
+            $sessionItem = new sessionItem;
+            $queries = new queries;
+            $sessionView = new sessionView;
+            $programmeView = new programmeView;
+
+
+            //$print_r()
+
+            $data = json_decode(file_get_contents('php://input'), true);
+
+            //print_r($data);
+
+            //$sessionid = $data['sessionid'];
+
+            //$edit ability; display icons next to editable segments.
+
+            $edit = 1;
+            
+            
+
+
+                //get session data    
+
+                $response =  $programmeView->generateViewGIEQSmedical();
+
+                print_r($response);
+
+                //get moderators
+
+                $moderators = $sessionView->getModerators($sessionid);
+
+                //print_r($moderators);
+
+                
+
+                //for the first iteration of the array will contain the static programme and session details
+
+                //work on the date
+
+                $programmeDate = new DateTime($response[0]['date']);
+
+                //echo $programmeDate->format('D d M Y');
+
+                //further iterations the same with the sessionItem data
+
+                //generate the HTML
+
+
+
+                ?>
+
+
+<!-- <section class="slice bg-gradient-dark slice-lg">
+            <div class="container"> -->
+<!--  <div class="row text-center">
+
+                    <div class="col-12 p-3 pb-5">
+                        <span class="h1" style="color: rgb(238, 194, 120);">Ghent International Endoscopy Quality
+                            Symposium <br> Edition I. <br>Draft Programme</span>
+                    </div>
+
+                </div> -->
+<!-- <div class="row text-center">
+
+                    <div class="col-12 p-3 pb-4">
+                        
+                        <a href="#targetScrollProgramme" id="wednesday" class="btn bg-gieqsGold rounded-pill hover-translate-y-n3 btn-icon mr-3 scroll-me">
+                            <span class="btn-inner--text text-dark">Wed 7 Oct</span>
+                        </a>
+                        <a href="#targetScrollProgramme" id="thursday" class="btn bg-gieqsGold rounded-pill hover-translate-y-n3 btn-icon mr-3 scroll-me">
+                            <span class="btn-inner--text text-dark">Thurs 8 Oct</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <hr id="targetScrollProgramme" class="divider divider-fade"> -->
+
+
+<!--Wednesday Programme-->
+
+<?php
+
+                //get all programmes [first 4]
+
+                $programmes = $programmeView->getProgrammes();
+                //print_r($programmes);
+
+                //foreach programme [first 4]
+
+                $x=0;
+
+                foreach ($programmes as $key=>$value){
+
+                    $programmeDate = new DateTime($value['date']);
+
+                    if ($x<1){
+                ?>
+
+//get day name
+
+//generate date
+
+<div id="<?php echo $programmeDate->format('l');?>Programme" class="<?php echo $programmeDate->format('l');?>">
+    <!--container-->
+
+    <div class="row text-left">
+        <div class="col-12 p-1 pb-3 pt-3">
+            <span class="h5"><?php echo $programmeDate->format('l d M Y');?></span>
+
+        </div>
+    </div>
+
+
+    <?php
+
+                    } //close if x <1
+                    else{
+
+                        continue;
+
+                    }
+
+                    $x++;
+                }  //close foreach prograamme as key value
+                
+            
+                ?>
+
+    <div class="row text-center border">
+
+        <div class="col-2 p-1 pb-3 pt-3 border-right">
+
+        </div>
+
+        <?php
+
+                    $x=0;
+
+                    foreach ($programmes as $key=>$value){
+
+                    //$programmeDate = new DateTime($value['date']);
+                         if ($x<2){
+                        
+                    ?>
+
+
+
+
+
+        <div class="col-5 p-1 pb-3 pt-3 border-right">
+            <span class="h4"><?php echo $value['programmeTitle'];?></span>
+        </div>
+
+
+
+        <?php
+                         } //close if x < 2 if
+                         else{
+
+                            continue;
+                         }
+
+                         $x++;
+
+                    }  //close foreach programme as key value
+                
+            
+                    ?>
+
+
+
+    </div>
+
+
+    
+        <?php
+
+                        $x=0;
+                        $y=0;
+
+                        //per day (2 programmes)
+
+                        //rigid time structure
+
+                        $times = array(1=>'08:45:00', 2=>'09:00:00', 3=>'10:00:00', 4=>'11:00:00', 5=>'13:45:00', 6=>'14:15:00', 7=>'15:30:00', 8=>'16:30:00', 9=>'17:15:00');
+                        print_r($times);
+
+                        //get array of sessions for first programme
+
+                        $sessions1 = $programmeView->getSessions('23');
+                        //get array of sessions for second programme
+                        print_r($sessions1);
+
+
+                        $sessions2 = $programmeView->getSessions('25');
+                        print_r($sessions2);
+
+                        //track which ones used in variables
+
+                        foreach ($times as $timeKey=>$timeValue){
+
+                            //query the database for each programme for the details matching that time
+                            echo '<div class="row text-center border-left border-right border-bottom bg-dark">';
+                            $session1data = $programmeView->getSessionTimeSpecific('23', $timeValue);
+                            $session2data = $programmeView->getSessionTimeSpecific('25', $timeValue);
+                            
+                            print_r($session1data);
+                            print_r($session2data);
+
+                            $a = 0;
+
+                            foreach ($sessions1 as $sessions1key=>$sessions1value){
+
+                                echo $sessions1value['timeFrom'];
+                                echo $timeValue;
+
+                                if ($sessions1value['timeFrom'] == $timeValue){
+
+                                    echo ' <div class="col-1 p-1 pb-3 pt-3 border-right">
+                                        <span class="tiny"
+                                            style="color: rgb(238, 194, 120);">' . $sessions1value['timeFrom'] . ' - ' . $sessions1value['timeTo'] . ' . </span>
+                                    </div>';
+                                    
+                                    
+                                    
+                                    echo '<div class="col-4 p-1 pb-3 pt-3 border-right">
+                                    <span class="sessionTitle h5">' . $sessions1value['sessionTitle'] . '</span><br>
+                                    <span class="sessionSubtitle">' . $sessions1value['sessionSubtitle'] . '</span>
+                                    </div>';
+                                    
+                                    
+                                    continue 2;
+
+
+                                } //if by end of array nio match insert blank
+
+                                if ($a = $sessions1count){ //does not work
+                                    
+                                    echo ' <div class="col-1 p-1 pb-3 pt-3 border-right">
+                                        <span class="tiny"
+                                            style="color: rgb(238, 194, 120);">' . $sessions1value['timeFrom'] . ' - ' . $sessions1value['timeTo'] . ' . </span>
+                                    </div>';
+
+                                    echo '<div class="col-4 p-1 pb-3 pt-3 border-right">
+                                    <span class="sessionTitle h5"></span><br>
+                                    <span class="sessionSubtitle"></span>
+                                    </div>';
+
+                                }
+
+                                echo '</div>';
+
+                            } //close sessions foreaxh
+
+
+
+
+                        } //close times foreach
+
+                        //for [0] get first, then check [matches] if not do not add to counter and insert blank column
+                        //if yes add another column
+
+                        ?>
+
+                    </div>
+
+
+
+<?php               
+$general->endgeneral;
+$programme->endprogramme;
+$session->endsession;
+$faculty->endfaculty;
+$sessionItem->endsessionItem;
+$queries->endqueries;
+$sessionView>endsessionView;?>

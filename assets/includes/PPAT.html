@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>PPAT POEM Assessment Tool</title>
+
+    <style>
+        .form-group {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 200px;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .content {
+            margin: 20px 20px 20px 220px;
+        }
+
+        #score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>Navigation</h2>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#section-1">1. Planning</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section-2">2. Mucosotomy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section-3">3. Tunnel entry</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section-4">4. Submucosal tunneling</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section-5">5. Identification of the LES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section-6">6. Myotomy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section-7">7. Haemostasis</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section-8">8. Tunnel closure</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section-9">9. Complications</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section-10">10. Global competencies</a>
+            </li>
+        </ul>
+
+        <div id="score"></div>
+
+    </div>
+
+    <div class="content">
+        <h1>PPAT POEM Assessment Tool</h1>
+        <form>
+            <h2 id="section-1">1. Planning</h2>
+            <div class="form-group">
+                <label for="identification" class="form-label"><b>Identification of anterior vs posterior
+                        approaches:</b></label>
+                <p class="text-muted">1 - Very poor = Cannot justify reasons for choice, clear obstruction to tunnel in
+                    chosen orientation, unable to identify anterior or posterior position, even with prompting
+                    necessitating mentor take over</p>
+                <p class="text-muted">5 - Very Good = Justifiable, independent, corroborated choice of orientation, no
+                    obstruction to tunnel in chosen orientation, avoids tortuosity/diverticulae/fibrosis, leaves maximum
+                    choice open to patient in future. Correctly identifies orientation based on gastric landmarks and
+                    gravity</p>
+                <select class="form-select" id="identification" name="identification">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="goj" class="form-label"><b>Identification of the GOJ:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to identify the GOJ despite prompting, unable to comment on
+                    the nature of the GOJ, does not consider pseudoachalasia as a cause</p>
+                <p class="text-muted">5 - Very Good = Accurately and independently identifies and documents the GOJ
+                    using multiple techniques. Appreciates puckering and any resistance to scope passage. Considers the
+                    possibility of pseudoachalasia</p>
+                <select class="form-select" id="goj" name="goj">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mucosotomy-site" class="form-label"><b>Identification of the mucosotomy site:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to locate and justify the mucosotomy site, despite mentor
+                    input. Does not consider spastic segments, length of myotomy or orientation</p>
+                <p class="text-muted">5 - Very Good = Independent, justifiable identification of the mucosotomy site.
+                    Considers length of myotomy, length of spastic segment, appreciates the spastic segment
+                    endoscopically, appropriately allows enough space for the myotomy</p>
+                <select class="form-select" id="mucosotomy-site" name="mucosotomy-site">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="myotomy-site" class="form-label"><b>Identification of the myotomy site/length:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to identify or justify the site, the length and
+                    completeness of the myotomy despite prompting. Does not consider spastic segments, available
+                    literature and implications on post POEM GERD</p>
+                <p class="text-muted">5 - Very Good = Independent, justifiable identification of the myotomy site and
+                    length. Considers spastic segments, available evidence and understands the importance of the gastric
+                    length of the myotomy</p>
+                <select class="form-select" id="myotomy-site" name="myotomy-site">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="clean-esophagus" class="form-label"><b>Ensures the esophagus is clean prior to
+                        starting:</b></label>
+                <p class="text-muted">1 - Very poor = Does not examine the esophagus prior to incision. Unable to
+                    adequately cleanse the esophagus, risking contamination of the tunnel. Does not appreciate risk
+                    factors for food stasis</p>
+                <p class="text-muted">5 - Very Good = Meticulously examines and cleans the esophagus prior to
+                    mucosotomy. Appropriate use of the water jet and mucolytics. Examines for early esophageal cancer.
+                    Able to identify factors which may increase the risk of food stasis</p>
+                <select class="form-select" id="clean-esophagus" name="clean-esophagus">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+
+
+            <h2 id="section-2">2. Mucosotomy</h2>
+
+            <!-- Add select boxes for the remaining bullet points under "Mucosotomy" -->
+
+            <div class="form-group">
+                <label for="submucosal-injection" class="form-label"><b>Submucosal injection: Correct plane</b></label>
+                <p class="text-muted">1 - Very poor = Unable to find the submucosal plane despite guidance. Poor
+                    technique, no communication with nursing staff to begin injection prior to advancing the needle,
+                    does not utilize the stab and pull back technique</p>
+                <p class="text-muted">5 - Very Good = Quickly, efficiently and independently finds the submucosal plane.
+                    Caution taken to avoid mucosal and intra-thoracic injection</p>
+                <select class="form-select" id="submucosal-injection" name="submucosal-injection">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="performed-dynamically" class="form-label"><b>Submucosal injection: Performed
+                        dynamically</b></label>
+                <p class="text-muted">1 - Very poor = Once the needle is in the submucosal space there is no movement of
+                    the needle during injection. Static injection not achieving an adequate lift</p>
+                <p class="text-muted">5 - Very Good = Once the needle is in the submucosal plane there is graduated
+                    dynamic movement away from the submucosa to achieve an adequate lift</p>
+                <select class="form-select" id="performed-dynamically" name="performed-dynamically">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="injectate-volume" class="form-label"><b>Submucosal injection: Injectate volume facilitates
+                        safe mucosotomy</b></label>
+                <p class="text-muted">1 - Very poor = Inadequate volume of injectate used resulting in a poor lift
+                    despite prompting. Lift compromises the safety of the mucosotomy by risking muscle injury. Unable to
+                    achieve adequate lift despite verbal prompts</p>
+                <p class="text-muted">5 - Very Good = Independently and purposely injects an adequate volume to obtain a
+                    lasting lift large enough to facilitate a safe mucosotomy incision</p>
+                <select class="form-select" id="injectate-volume" name="injectate-volume">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="gains-entry-submucosal-plane" class="form-label"><b>Gains entry into the submucosal
+                        plane</b></label>
+                <p class="text-muted">1 - Very poor = Uncontrolled, unsafe use of the knife/ESU. Does not withdraw the
+                    knife to check planes. Unable to identify planes and cutting line. Knife tip held tangentially to
+                    the mucosa</p>
+                <p class="text-muted">5 - Very Good = Controlled, independent, slow, stepwise, sequential single taps on
+                    the ESU. Confidently recognize planes, ensures incision passes the muscularis mucosa but maintains a
+                    safe margin from the muscularis propria. Knife tip held against the mucosa at 45 – 80 degrees</p>
+                <select class="form-select" id="gains-entry-submucosal-plane" name="gains-entry-submucosal-plane">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="extension-of-incision" class="form-label"><b>Extension of incision</b></label>
+                <p class="text-muted">1 - Very poor = Uncontrolled, unsafe extension of the incision. Direction not
+                    maintained, incorrect plane, inappropriate length, inadequate lift. Unable to correct with verbal
+                    prompts requires mentor take over for safety</p>
+                <p class="text-muted">5 - Very Good = Precise, independent, controlled, stepwise, vertical extension of
+                    the incision maintaining the direction of the tunnel. Gentle traction applied to the caudal end.
+                    Appropriate length to facilitate entry. Repeated use of submucosal injection</p>
+                <select class="form-select" id="extension-of-incision" name="extension-of-incision">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+
+            <h2 id="section-3">3. Tunnel entry</h2>
+            <!-- Add select boxes for the bullet points under "Tunnel entry" -->
+
+            <div class="form-group">
+                <label for="trimming-of-incision" class="form-label"><b>Trimming of distal end of incision:</b></label>
+                <p class="text-muted">1 - Very poor = Uncontrolled, non-purposeful movements of the knife, trims
+                    incorrect area, inadequate lift, risks thermal injury to the mucosa and/or muscle layer, trimming
+                    does not improve tunnel access. Necessitates mentor take over for safety despite prompts</p>
+                <p class="text-muted">5 - Very Good = Careful, precise, controlled, independently trims the submucosa at
+                    the caudal incision end. Utilizes the cap to protect the mucosa from thermal injury. Uses injection
+                    to improve safety</p>
+                <select class="form-select" id="trimming-of-incision" name="trimming-of-incision">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="gains-entry-into-tunnel" class="form-label"><b>Gains entry into the tunnel:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to enter the tunnel despite guidance. Inappropriate use of
+                    the tunneling cap, excessive force applied, does not recognize inadequately opened tunnel</p>
+                <p class="text-muted">5 - Very Good = Independent, safe, gentle manipulation of the tunnelling cap to
+                    burrow under the incision, uses the cap to enhance the mucosa/muscle plane</p>
+                <select class="form-select" id="gains-entry-into-tunnel" name="gains-entry-into-tunnel">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="avoids-tearing-incision" class="form-label"><b>Avoids tearing the incision:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to recognize incision length as a limitation to tunnel
+                    entry. Excessive force applied risking tearing of the mucosotomy</p>
+                <p class="text-muted">5 - Very Good = Easily, safely and independently able to enter the tunnel. Ensures
+                    adequate incision length to facilitate completion and closure. Early recognition of too short an
+                    incision and extends incision appropriately</p>
+                <select class="form-select" id="avoids-tearing-incision" name="avoids-tearing-incision">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+
+            <h2 id="section-4">4. Submucosal tunneling</h2>
+            <!-- Add select boxes for the bullet points under "Submucosal tunneling" -->
+
+            <div class="form-group">
+                <label for="sequential-injection-dissection" class="form-label"><b>Sequential injection and
+                        dissection:</b></label>
+                <p class="text-muted">1 - Very poor = Infrequent or non-use of submucosal injection compromising safety.
+                    Rapid instrument changes overshooting the catheter beyond the scope, unsafe use of an injector
+                    needle.</p>
+                <p class="text-muted">5 - Very Good = Repeated use of injection at submucosal muscle interface to
+                    maintain a safe plane. Where a jet knife is not available, uses blunt injection preferentially.
+                    Safely exchanges instruments and avoids mucosal injury when extending the needle</p>
+                <select class="form-select" id="sequential-injection-dissection" name="sequential-injection-dissection">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="proceeds-along-muscularis-propria" class="form-label"><b>Proceeds along the muscularis
+                        propria:</b></label>
+                <p class="text-muted">1 - Very poor = Poor appreciation of the cutting plane, dissects close to the
+                    mucosa, creates traction on tissue with the knife resulting in slippage of the knife, applies
+                    thermal energy close to the mucosa. Unsafe dissection despite guidance from the mentor</p>
+                <p class="text-muted">5 - Very Good = Precise, controlled dissection along the muscle using rotation of
+                    the right hand, continuously ensures the mucosal layer is kept away from the dissection plane. Uses
+                    spray coagulation without contact and traction on tissue.</p>
+                <select class="form-select" id="proceeds-along-muscularis-propria"
+                    name="proceeds-along-muscularis-propria">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="maintains-direction" class="form-label"><b>Maintains direction:</b></label>
+                <p class="text-muted">1 - Very poor = Does not periodically check direction, continues to dissect
+                    unaware of deviations in direction, unable to determine the direction of the GOJ</p>
+                <p class="text-muted">5 - Very Good = Periodically checks the direction of the tunnel by withdrawing the
+                    scope. Able to timeously identify any deviations in direction and correct it.</p>
+                <select class="form-select" id="maintains-direction" name="maintains-direction">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="avoids-creation-multiple-planes" class="form-label"><b>Avoids creation of multiple
+                        planes:</b></label>
+                <p class="text-muted">1 - Very poor = Repeated, uncontrolled, uneven, blind dissection resulting in the
+                    creation of multiple tunnels, displays poor appreciation of planes despite prompting. Failure to
+                    recognize creating a dissection plane in the muscle. Uneven width of the tunnel with too narrow or
+                    large areas</p>
+                <p class="text-muted">5 - Very Good = Meticulous, purposeful, controlled, stepwise dissection from one
+                    end of the tunnel to the other. Avoids creating multiple planes. Cognizant of not creating a
+                    dissection plane in the muscle layer. Maintains width of the tunnel</p>
+                <select class="form-select" id="avoids-creation-multiple-planes" name="avoids-creation-multiple-planes">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="periodic-checks" class="form-label"><b>Periodic checks:</b></label>
+                <p class="text-muted">1 - Very poor = Continued dissection failing to perform safety checks, unable to
+                    anticipate challenges, failure to recognize adverse events</p>
+                <p class="text-muted">5 - Very Good = Periodically checks tunnel direction, mucosal integrity, proximity
+                    to the GOJ, assesses for bleeding, assesses for abdominal distention, communicates with anaesthetic
+                    team</p>
+                <select class="form-select" id="periodic-checks" name="periodic-checks">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pushes-scope-in" class="form-label"><b>Pushes scope in to improve plane:</b></label>
+                <p class="text-muted">1 - Very poor = Does not push in adequately, does not utilize pressure with the
+                    cap to create traction, inadequate space between the cutting line and mucosa. Pushes in aggressively
+                    dissecting using pressure of the advancing scope</p>
+                <p class="text-muted">5 - Very Good = Pushes in the scope with controlled pressure. Uses the cap to
+                    create gentle traction at the advancing submucosal muscle interface</p>
+                <select class="form-select" id="pushes-scope-in" name="pushes-scope-in">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="extends-tunnel-distal-goj" class="form-label"><b>Extends the tunnel 2-3cm distal to the
+                        GOJ:</b></label>
+                <p class="text-muted">1 - Very poor = Unaware of the GOJ, continues dissection without being aware that
+                    the tunnel has crossed the GOJ, poor insight into the vasculature changes in the cardia. Dissects
+                    too deeply into the cardia or does not reach the GOJ</p>
+                <p class="text-muted">5 - Very Good = Anticipates the GOJ, maintaining awareness of its position,
+                    carefully dissects into the cardia while avoiding large vessels and sling fibers. Care taken to not
+                    extend the tunnel too deep into the gastric cardia</p>
+                <select class="form-select" id="extends-tunnel-distal-goj" name="extends-tunnel-distal-goj">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="use-of-insufflation" class="form-label"><b>Use of insufflation to improve
+                        access:</b></label>
+                <p class="text-muted">1 - Very poor = Does not use insufflation to improve access despite repeated
+                    prompting</p>
+                <p class="text-muted">5 - Very Good = Appropriate use of insufflation to improve visualization of the
+                    submucosa muscle interface. Uses constant insufflation in areas of difficulty to ensure the mucosal
+                    surface is kept away from the cutting plane</p>
+                <select class="form-select" id="use-of-insufflation" name="use-of-insufflation">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <h2 id="section-5">5. Identification of the LES</h2>
+            <!-- Add select boxes for the bullet points under "Identification of the LES" -->
+
+            <div class="form-group">
+                <label for="identification-les" class="form-label"><b>Correctly identifies the LES by >1
+                        means:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to identify the LES. Poor understanding of the techniques
+                    used to identify its location.</p>
+                <p class="text-muted">5 - Very Good = Confidently, accurately and independently able to identify the LES
+                    and confirms its location using several means.</p>
+                <select class="form-select" id="identification-les" name="identification-les">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+
+
+            <h2 id="section-6">6. Myotomy</h2>
+            <!-- Add select boxes for the bullet points under "Myotomy" -->
+
+            <div class="form-group">
+                <label for="myotomy-site" class="form-label"><b>Starts at appropriate site:</b></label>
+                <p class="text-muted">1 - Very poor = Cranial end at or too close to the mucosotomy impairing safety.
+                    Caudal end beyond 3cm into the cardia risking post POEM GERD.</p>
+                <p class="text-muted">5 - Very Good = Correctly and justifiably identifies myotomy site/length.
+                    Understands the problems associated with a long gastric myotomy. Cranial extent starts distal to the
+                    mucosotomy.</p>
+                <select class="form-select" id="myotomy-site" name="myotomy-site">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="selective-myotomy" class="form-label"><b>Performs selective myotomy where
+                        appropriate:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to appreciate circular vs longitudinal muscle layers.
+                    Unable to perform selective myotomy. Poor understanding of the role of each approach.</p>
+                <p class="text-muted">5 - Very good = Able to accurately identify the longitudinal and circular muscles.
+                    Where needed, careful selective dissection of the circular muscle layer is performed. Understands
+                    the pros and cons of both approaches.</p>
+                <select class="form-select" id="selective-myotomy" name="selective-myotomy">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="adventitial-injection" class="form-label"><b>Use of adventitial injection to improve
+                        safety:</b></label>
+                <p class="text-muted">1 - Very poor = Does not use injection to improve safety.</p>
+                <p class="text-muted">5 - Very good = Utilizes injection into the adventitial space to prevent thermal
+                    injury to mediastinal structures when using the mucosal to adventitial approach.</p>
+                <select class="form-select" id="adventitial-injection" name="adventitial-injection">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="approach-technique" class="form-label"><b>Appropriate use of mucosal to adventitial or
+                        adventitial to mucosal approaches:</b></label>
+                <p class="text-muted">1 - Very poor = Inappropriate choice of technique, use of adventitial to mucosal
+                    technique in small spaces, applies excessive traction on the muscle with the knife. Excessive
+                    uncontrolled use of thermal area, incising large areas of muscle at a time. Mentor take over due to
+                    safety.</p>
+                <p class="text-muted">5 - Very good = Insightful choice of approach based on the amount of space in the
+                    tunnel. Avoids excessive traction on the muscle with the knife. Slow, controlled, stepwise incisions
+                    made. Able to seamlessly switch between approaches. Maintains knife perpendicular to the circular
+                    muscle.</p>
+                <select class="form-select" id="approach-technique" name="approach-technique">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="adequate-distention" class="form-label"><b>Ensures adequate distention to ensure
+                        safety:</b></label>
+                <p class="text-muted">1 - Very poor = Risky use of thermal energy close to the mucosa. Insufficient use
+                    of insufflation compromising safety. Unsafe necessitating mentor take over.</p>
+                <p class="text-muted">5 - Very good = Good use of insufflation to keep the mucosal surface away from the
+                    muscle. When using the AM approach ensures a safe margin from the mucosal surface before applying
+                    thermal energy.</p>
+                <select class="form-select" id="adequate-distention" name="adequate-distention">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="completeness-of-myotomy" class="form-label"><b>Ensures completeness of myotomy:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to assess for completeness. Does not recognize remaining
+                    circular muscle.</p>
+                <p class="text-muted">5 - Very good = Meticulously inspects the myotomy to ensure complete disruption of
+                    the circular layer.</p>
+                <select class="form-select" id="completeness-of-myotomy" name="completeness-of-myotomy">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+
+            <h2 id="section-7">7. Haemostasis</h2>
+            <!-- Add select boxes for the bullet points under "Haemostasis" -->
+
+            <div class="form-group">
+                <label for="avoidance-of-large-vessels" class="form-label"><b>Avoids large vessels where
+                        appropriate:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to identify large vessels cutting into them. Poor awareness
+                    of tunnel direction and which vessels can be avoided.</p>
+                <p class="text-muted">5 - Very good = Able to identify large vessels timeously and dissect around them.
+                    Able to estimate bleeding risk based on size of vessels. Appreciates the higher risk of bleeding in
+                    the cardia.</p>
+                <select class="form-select" id="avoidance-of-large-vessels" name="avoidance-of-large-vessels">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pretreatment-of-vessels" class="form-label"><b>Pretreatment of vessels prior to
+                        cutting:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to identify vessels and pretreat. Poor understanding of
+                    bleeding risk based on vessel size. Incorrect current used, vessels cut instead of coagulated.
+                    Incorrect.</p>
+                <p class="text-muted">5 - Very good = Appropriately chooses instrument (knife vs coagulation grasper)
+                    based on vessel size. Dissects around vessels and uses slow, controlled application of coagulation
+                    current to vessels prior to cutting. Precise use of the knife or coagulation grasper coagulation and
+                    ensures the entire vessel is grasped before coagulating. Applies coagulation long enough to ensure
+                    the vessel is adequately treated.</p>
+                <select class="form-select" id="pretreatment-of-vessels" name="pretreatment-of-vessels">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="water-instillation" class="form-label"><b>Appropriate use of water instillation to assess
+                        bleeding:</b></label>
+                <p class="text-muted">1 - Very poor = Does not routinely assess for minor bleeding after myotomy. Unable
+                    to use water as an aid.</p>
+                <p class="text-muted">5 - Very good = Routinely instills water into the tunnel noting discoloration and
+                    subsequently looks for bleeding source.</p>
+                <select class="form-select" id="water-instillation" name="water-instillation">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="assessment-and-treatment-of-transected-vessels" class="form-label"><b>Assesses for
+                        transected vessels and appropriately treats:</b></label>
+                <p class="text-muted">1 - Very poor = Does not asses for transected vessel or failure to identify
+                    transected vessels.</p>
+                <p class="text-muted">5 - Very good = Carefully assess the tunnel for transected vessels and
+                    appropriately treats prior to tunnel closure.</p>
+                <select class="form-select" id="assessment-and-treatment-of-transected-vessels"
+                    name="assessment-and-treatment-of-transected-vessels">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+
+            <h2 id="section-8">8. Tunnel closure</h2>
+            <!-- Add select boxes for the bullet points under "Tunnel closure" -->
+
+            <div class="form-group">
+                <label for="achieves-6-o-clock-or-12-o-clock" class="form-label"><b>Achieves 6 o'clock or 12
+                        o'clock:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to orientate the mucosotomy in the 6 or 12 o'clock position.
+                </p>
+                <p class="text-muted">5 - Very good = Easily and independently maintains the mucosotomy in the 6 or 12
+                    o'clock position for closure.</p>
+                <select class="form-select" id="achieves-6-o-clock-or-12-o-clock"
+                    name="achieves-6-o-clock-or-12-o-clock">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="placement-of-the-first-clip" class="form-label"><b>Placement of the first clip:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to place the first clip in an appropriate position. Begins
+                    closure at incorrect position. Requires mentor take over.</p>
+                <p class="text-muted">5 - Very good = Independently places the first clip on normal mucosa at the caudal
+                    end of the mucosotomy facilitating zipper closure. Appreciates the effect of gravity on the shaft of
+                    the clips.</p>
+                <select class="form-select" id="placement-of-the-first-clip" name="placement-of-the-first-clip">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ensures-tight-closure-and-tissue-eversion" class="form-label"><b>Ensures tight closure and
+                        tissue eversion:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to close mucosotomy. Inaccurate, uneven, incorrect position
+                    of clips. Deploys clips prior to confirming position. Risks injury to the mucosa. Persistent tissue
+                    inversion and unable to identify eversion. Unsafe closure warranting mentor take over.</p>
+                <p class="text-muted">5 - Very good = Even, accurate, independent placement of clips ensuring zipper
+                    type closure. Good communication with nursing staff. Ensures adequate position and tissue eversion
+                    prior to deploying clips.</p>
+                <select class="form-select" id="ensures-tight-closure-and-tissue-eversion"
+                    name="ensures-tight-closure-and-tissue-eversion">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="appropriate-removal-and-resiting-of-clips" class="form-label"><b>Appropriate removal and
+                        resiting of clips:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to recognize need for additional clips or poorly sited clips
+                    as a reason for inadequate closure. Attempts to achieve closure by adding multiple clips without
+                    resiting poorly placed clips. Unable to achieve closure despite mentor input.</p>
+                <p class="text-muted">5 - Very good = Recognizes need for additional clips. Able to identify poorly
+                    sited clips which hamper progression of closure. Safely removes clips and independently able to
+                    resite achieving tight closure.</p>
+                <select class="form-select" id="appropriate-removal-and-resiting-of-clips"
+                    name="appropriate-removal-and-resiting-of-clips">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="assesses-for-complete-closure" class="form-label"><b>Assesses for complete
+                        closure:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to assess completeness of closure risking leaks post
+                    procedure.</p>
+                <p class="text-muted">5 - Very good = Meticulously assess the entire mucosotomy for complete closure.
+                    Uses the cap to check areas between clips.</p>
+                <select class="form-select" id="assesses-for-complete-closure" name="assesses-for-complete-closure">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+
+            <h2 id="section-9">9. Complications</h2>
+            <!-- Add select boxes for the bullet points under "Complications" -->
+
+            <div class="form-group">
+                <label for="precise-identification-of-bleeding-site" class="form-label"><b>Precise identification of
+                        bleeding site:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to clear working field and locate bleeding point.
+                    Persistently bloody field, inaccurate blind use of coagulation. Necessitates mentor take over.</p>
+                <p class="text-muted">5 - Very good = Precisely, independently and quickly identifies bleeding points.
+                    Uses the water jet, cap and image enhancement to identify bleeding points. Utilizes the cap to
+                    tamponade vessels while changing instruments.</p>
+                <select class="form-select" id="precise-identification-of-bleeding-site"
+                    name="precise-identification-of-bleeding-site">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="avoids-the-use-of-coagulation-on-the-mucosal-surface" class="form-label"><b>Avoids the use
+                        of coagulation on the mucosal surface:</b></label>
+                <p class="text-muted">1 - Very poor = Applies thermal energy close to the mucosa risking injury.</p>
+                <p class="text-muted">5 - Very good = Recognizes the low bleeding risk of the devascularized mucosal
+                    surface. Lifts vessels away from the mucosal surface before applying thermal energy.</p>
+                <select class="form-select" id="avoids-the-use-of-coagulation-on-the-mucosal-surface"
+                    name="avoids-the-use-of-coagulation-on-the-mucosal-surface">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="appropriate-choice-of-therapy" class="form-label"><b>Appropriate choice of
+                        therapy:</b></label>
+                <p class="text-muted">1 - Very poor = Incorrect modality selected for treating bleeding.</p>
+                <p class="text-muted">5 - Very good = Appropriately selects modality for treating bleeding based on
+                    severity and size. Uses closed knife for small vessels and coagulation grasper for larger vessels.
+                </p>
+                <select class="form-select" id="appropriate-choice-of-therapy" name="appropriate-choice-of-therapy">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="safely-manages-bleeding" class="form-label"><b>Safely manages bleeding:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to manage bleeding despite mentor input. Uncontrolled,
+                    blind use of coagulation. Current applied for too short a period resulting in further bleeding or
+                    too much current used risking thermal injury. Unaware of the need to protect the mucosal surface
+                    from thermal injury.</p>
+                <p class="text-muted">5 - Very good = Precise, controlled, slow, independent use of coagulation to stop
+                    bleeding. Precise use of the closed knife on the bleeding point. Entire vessel grasped with the
+                    coagulation grasper, vessel lifted away from mucosa prior to thermal ablation. Correct duration of
+                    coagulation is used to treat vessels and minimize injury to surrounding tissue.</p>
+                <select class="form-select" id="safely-manages-bleeding" name="safely-manages-bleeding">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="periodically-checks-for-mucosal-injury" class="form-label"><b>Periodically checks for
+                        mucosal injury:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to identify mucosal injury, unaware how to recognize injury.
+                </p>
+                <p class="text-muted">5 - Very good = Repeatedly checks mucosal integrity without prompting, looks for
+                    blanching and perforation. Recognizes loss in distention with insufflation.</p>
+                <select class="form-select" id="periodically-checks-for-mucosal-injury"
+                    name="periodically-checks-for-mucosal-injury">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="correctly-identifies-mucosal-injury-and-technique-for-closure"
+                    class="form-label"><b>Correctly identifies mucosal injury and technique for closure:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to identify mucosal perforations and poor insight into
+                    closure techniques. Enlarges perforations with excessive use of insufflation and uncontrolled scope
+                    movements.</p>
+                <p class="text-muted">5 - Very good = Quickly recognizes mucosal injury and able to justify technique
+                    for closure. Displays good knowledge into the limitations and benefits of closure techniques.</p>
+                <select class="form-select" id="correctly-identifies-mucosal-injury-and-technique-for-closure"
+                    name="correctly-identifies-mucosal-injury-and-technique-for-closure">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="able-to-adequately-manage-perforation" class="form-label"><b>Able to adequately manage
+                        perforation:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to securely close perforations requiring mentor take over.
+                </p>
+                <p class="text-muted">5 - Very good = Independently, safely and securely manages perforations.
+                    Meticulously inspects. Able to complete the procedure after closure.</p>
+                <select class="form-select" id="able-to-adequately-manage-perforation"
+                    name="able-to-adequately-manage-perforation">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="communicates-with-anaesthetic-team-to-identify-gas-related-complications"
+                    class="form-label"><b>Communicates with anaesthetic team to identify gas related
+                        complications:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to recognize capnoperitoneum.</p>
+                <p class="text-muted">5 - Very good = Frequent communication with the anaesthetics team and examination
+                    of the patient for abdominal distention. Understands the cardiorespiratory consequences of gas
+                    related complications. Able to recognize capnoperitoneum timeously.</p>
+                <select class="form-select"
+                    id="communicates-with-anaesthetic-team-to-identify-gas-related-complications"
+                    name="communicates-with-anaesthetic-team-to-identify-gas-related-complications">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="able-to-determine-the-need-to-stop-the-procedure-and-treat-gas-related-complications"
+                    class="form-label"><b>Able to determine the need to stop the procedure and treat gas related
+                        complications:</b></label>
+                <p class="text-muted">1 - Very poor = Does not recognize indications for needle decompression. Stops the
+                    procedure at an inappropriate point.</p>
+                <p class="text-muted">5 - Very good = Understands indications for needle decompression, leads the team
+                    effectively, stops the procedure when safe to do so to perform decompression.</p>
+                <select class="form-select"
+                    id="able-to-determine-the-need-to-stop-the-procedure-and-treat-gas-related-complications"
+                    name="able-to-determine-the-need-to-stop-the-procedure-and-treat-gas-related-complications">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="able-to-perform-needle-decompression-of-capnoperitoneum" class="form-label"><b>Able to
+                        perform needle decompression of capnoperitoneum:</b></label>
+                <p class="text-muted">1 - Very poor = Unable to safely perform needle decompression despite mentor
+                    input.</p>
+                <p class="text-muted">5 - Very good = Confirms presence of capnoperitoneum, identifies site of
+                    decompression, cleans overlying skin, adequate depth of insertion, ensures bubbling through a
+                    water-filled syringe, secures catheter in place, and monitors bubbling.</p>
+                <select class="form-select" id="able-to-perform-needle-decompression-of-capnoperitoneum"
+                    name="able-to-perform-needle-decompression-of-capnoperitoneum">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+
+            <h2 id="section-10">10. Global competencies</h2>
+            <!-- Add select boxes for the bullet points under "Global competencies" -->
+
+            <div class="form-group">
+                <label for="tip-control" class="form-label"><b>Tip control:</b></label>
+                <p class="text-muted">1 - Very poor = Jerky, inaccurate, large, non-purposeful movements. Unable to
+                    optimize planes and orientation to achieve objectives. Excessive force. Compromising safety and
+                    warranting mentor take over.</p>
+                <p class="text-muted">5 - Very good = Controlled, precise, fine, purposeful movements. Uses right hand
+                    rotation, manipulation of the wheels and rotation to achieve optimal position. Demonstrates
+                    excellent control of the knife and other accessories.</p>
+                <select class="form-select" id="tip-control" name="tip-control">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="appreciation-of-planes" class="form-label"><b>Appreciation of planes:</b></label>
+                <p class="text-muted">1 - Very poor = Repeatedly unable to identify planes and the cutting line despite
+                    mentor input, compromising safety.</p>
+                <p class="text-muted">5 - Very good = Good, independent appreciation of planes and cutting line at all
+                    stages of the procedure. Anticipates areas of difficulty and able to optimize technique to improve
+                    the plane and safely proceed.</p>
+                <select class="form-select" id="appreciation-of-planes" name="appreciation-of-planes">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="periodic-checks" class="form-label"><b>Periodic checks:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to perform any periodic checks.</p>
+                <p class="text-muted">5 - Very good = Frequently checks ESU settings before using thermal energy (after
+                    every change in settings), use of CO2 rather than air, mucosal integrity, abdominal distention and
+                    maintains good communication with the anaesthetics team.</p>
+                <select class="form-select" id="periodic-checks" name="periodic-checks">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="achieves-good-orientation" class="form-label"><b>Achieves good orientation:</b></label>
+                <p class="text-muted">1 - Very poor = Fails to achieve good orientation despite mentor input. Unaware of
+                    or ineffective use of withdrawal, advancement and rotation of the scope.</p>
+                <p class="text-muted">5 - Very good = Able to easily achieve orientation, tunnel easily advanced
+                    perpendicular to the circular muscle. In more difficult cases achieves a good orientation with
+                    repeated withdrawal, advancement and rotation of the scope.</p>
+                <select class="form-select" id="achieves-good-orientation" name="achieves-good-orientation">
+                    <option value="" selected disabled>Please select</option>
+                    <option value="1">1 - Very poor</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Very Good</option>
+                </select>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+    <script>
+        // Calculate and display the score
+        function calculateScore() {
+            const selects = $('select');
+            let score = 0;
+
+            selects.each(function () {
+
+                if ($(this).val() != null) {
+                    score += parseInt($(this).val());
+                } else {
+
+                    score += 0;
+                }
+            });
+
+            $('#score').text(`Total Score: ${score}`);
+        }
+
+        // Calculate the initial score
+        calculateScore();
+
+        // Listen for select box changes
+        $('select').on('change', function () {
+            calculateScore();
+        });
+    </script>
+</body>
+
+</html>

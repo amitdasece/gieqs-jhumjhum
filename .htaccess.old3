@@ -1,0 +1,140 @@
+RewriteEngine On 
+
+#generic rules
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^(www\.)?gieqs\.com
+RewriteRule ^(.*)$ https://www.gieqs.com/$1 [R,L]
+
+
+RewriteCond %{HTTP_HOST} !^www.gieqs.com$ [NC]
+RewriteRule ^(.*)$ https://www.gieqs.com/$1 [L,R=301]
+
+
+RewriteRule ^blogs/(.+)$ pages/learning/blog_article_wp.php?id=$1 [NC,L]
+RewriteRule ^videos/(.+)$ pages/learning/viewer.php?id=$1 [NC,L]
+RewriteRule ^free-videos/(.+)$ pages/learning/viewer_free.php?id=$1 [NC,L]
+RewriteRule ^pro-content$ pages/learning/pages/general/show_courses.php 
+RewriteRule ^pro-content/$ pages/learning/pages/general/show_courses.php
+RewriteRule ^pro-content/(.+)$ pages/program/program_generic.php?id=$1 [NC,L]
+RewriteRule ^view-pro-content/(.+)$ pages/learning/pages/general/show_subscription.php?assetid=$1 [NC,L]
+RewriteRule ^curricula/(.+)$ pages/learning/pages/curriculum/curriculum_generic.php?id=$1 [NC,L]
+RewriteRule ^scores/gpat$ pages/learning/pages/scores/technique_no_login.php [NC,L]
+RewriteRule ^scores/cecum pages/learning/pages/scores/cecum.php [NC,L]
+RewriteRule ^scores/caecum pages/learning/pages/scores/cecum.php [NC,L]
+RewriteRule ^scores/smi$ pages/learning/pages/scores/smic_v2.php [NC,L]
+RewriteRule ^scores/tip pages/learning/pages/scores/tip-control.php [NC,L]
+RewriteRule ^page-viewer/(.+)$ pages/generic.php?id=$1 [NC,L]
+RewriteRule ^search$ pages/learning/pages/general/show_subscription_all.php?page_id=95 [NC,L]
+
+
+
+
+ErrorDocument 404 https://www.gieqs.com/pages/utility/error-404-gdversion3.html
+
+#search
+#next step is to make sure all these pages have seo content at top and are in sitemap especially those accessible without login and viewer free
+
+RewriteRule ^programme$ pages/program/program.php
+RewriteRule ^program$ pages/program/program.php
+RewriteRule ^faculty$ pages/program/faculty.php
+RewriteRule ^mission$ pages/program/mission.php
+RewriteRule ^nursing$ pages/program/nursing.php
+RewriteRule ^nursing-congress$ pages/program/nursing.php
+RewriteRule ^venue$ pages/program/venue.php
+RewriteRule ^ghelamco$ pages/program/venue.php
+RewriteRule ^sponsors$ pages/program/sponsors.php
+RewriteRule ^registration$ pages/program/registration.php
+RewriteRule ^login$ pages/authentication/login.php [QSA]
+RewriteRule ^logmein$ pages/authentication/login.php
+RewriteRule ^proposedprogram$ pages/program/programv2.php
+RewriteRule ^learning$ pages/program/online.php
+RewriteRule ^online$ pages/program/online.php
+RewriteRule ^bleeding$ pages/learning/viewer_free.php?id=113
+RewriteRule ^artificial-intelligence$ pages/learning/viewer_free.php?id=136
+RewriteRule ^colonoscopy$ pages/learning/viewer_free.php?id=56
+RewriteRule ^polypectomy$ pages/learning/viewer_free.php?id=113
+RewriteRule ^malignant-polyp$ pages/learning/viewer_free.php?id=157
+RewriteRule ^ercp$ pages/learning/viewer_free.php?id=153
+RewriteRule ^smic$ pages/learning/pages/scores/smic_v2.php
+RewriteRule ^smic-new$ pages/learning/pages/scores/smic_v2.php
+RewriteRule ^smi$ pages/learning/pages/scores/smic_v2.php
+
+
+RewriteRule ^smsa$ pages/learning/pages/scores/smsa.php
+RewriteRule ^caecal-score$ pages/learning/pages/scores/cecum.php
+RewriteRule ^cecal-score$ pages/learning/pages/scores/cecum.php
+RewriteRule ^cecum$ pages/learning/pages/scores/cecum.php
+RewriteRule ^tip-control$ pages/learning/pages/scores/tip-control.php
+RewriteRule ^privacy-policy$ pages/support/support_gieqs_privacy_policy.php
+RewriteRule ^basic-colonoscopy$ pages/program/program_basic_colon.php
+RewriteRule ^train-the-trainers$ pages/program/program_trainer_colon.php
+RewriteRule ^polypectomy-upskilling$ pages/program/program_polypectomy_upskilling.php
+RewriteRule ^imaging$ pages/program/program_imaging.php
+RewriteRule ^small-intermediate-polypectomy$ pages/program/program_small_polypectomy.php
+RewriteRule ^decision-making$ pages/program/program_small_polypectomy.php
+RewriteRule ^gieqsii$ pages/program/gieqs_ii.php
+RewriteRule ^ii$ pages/program/gieqs_ii.php
+RewriteRule ^2$ pages/program/gieqs_ii.php
+RewriteRule ^second_edition$ pages/program/gieqs_ii.php
+RewriteRule ^the_next_step$ pages/program/gieqs_ii.php
+RewriteRule ^blog$ pages/learning/blog_wp.php
+RewriteRule ^blog-view$ pages/learning/blog_article_wp.php
+
+RewriteRule ^technique-score$ pages/learning/pages/scores/technique.php
+RewriteRule ^gpat$ pages/generic.php?id=383
+RewriteRule ^GPAT$ pages/generic.php?id=383
+
+RewriteRule ^charitable$ pages/foundation/charitable.php
+RewriteRule ^polypectomy-upskilling2$ pages/program/program_generic.php?id=55
+RewriteRule ^technique$ pages/program/program_generic.php?id=55
+RewriteRule ^colonoscopy-technique-theory$ pages/program/program_generic.php?id=84
+RewriteRule ^colonoscopy-upskilling$ pages/program/program_generic.php?id=83
+RewriteRule ^train-trainers-polypectomy$ pages/learning/blog_article.php?id=53
+RewriteRule ^polyp-cancer$ pages/program/program_generic.php?id=86&access_token=sfTEyfcJxJmDt4X
+
+
+RewriteRule ^iii$ pages/program/program_generic.php?id=95
+RewriteRule ^iii/programme$ pages/program/program.php
+RewriteRule ^iii/program$ pages/program/program.php
+
+RewriteRule ^3$ pages/program/program_generic.php?id=95
+RewriteRule ^symposium/group-registration$ pages/program/symposium-group-registration_4.php
+RewriteRule ^symposium/programme$ pages/program/program_4.php
+RewriteRule ^symposium/program$ pages/program/program_4.php
+RewriteRule ^symposium/faculty$ pages/program/faculty_4.php
+RewriteRule ^iii/register-now$ pages/program/program_generic.php?id=95&action=register-now
+
+RewriteRule ^4$ pages/program/program_generic.php?id=175
+
+RewriteRule ^iv$ pages/program/program_generic.php?id=175
+
+RewriteRule ^polypectomy-curriculum-theory$ pages/program/program_generic.php?id=94
+
+RewriteRule ^poem-curriculum$ pages/learning/pages/curriculum/curriculum_generic.php?id=5
+
+RewriteRule ^emr-curriculum$ pages/learning/pages/curriculum/curriculum_generic.php?id=4
+
+RewriteRule ^emr-curriculum-esge$ pages/learning/pages/curriculum/curriculum_generic_esge.php?id=4
+
+RewriteRule ^curriculum-editor$ pages/backend/curriculae.php
+
+RewriteRule ^register$ pages/program/online.php?id=2456
+RewriteRule ^sign-up$ pages/program/online.php?id=2456
+
+
+RewriteRule ^manage-institution pages/backend/institution_management_redirect.php
+
+RewriteRule ^gpat-form pages/learning/pages/scores/technique_no_login.php
+
+RewriteRule ^sies pages/program/sies.php?id=171
+
+RewriteRule ^esge pages/learning/pages/general/show_subscription_esge.php?assetid=144
+
+
+
+
+
+
+
+
+

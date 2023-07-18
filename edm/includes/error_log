@@ -1,0 +1,81 @@
+[15-Feb-2018 22:20:49 UTC] PHP Notice:  Use of undefined constant _POST - assumed '_POST' in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 3
+[15-Feb-2018 22:31:13 UTC] PHP Warning:  require(classes/QuestionsCSP.class.php): failed to open stream: No such file or directory in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 9
+[15-Feb-2018 22:31:13 UTC] PHP Fatal error:  require(): Failed opening required 'classes/QuestionsCSP.class.php' (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 9
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 1 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 2 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 3 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 4 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 5 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 6 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 7 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 8 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 9 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 10 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 11 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 12 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Warning:  Missing argument 13 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 13 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: question1apre in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 101
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: question1bpre in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 102
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: question2pre in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 103
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: question3apre in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 104
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: question3bpre in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 105
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: question1apost in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 107
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: question1bpost in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 108
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: question2post in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 109
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: question3apost in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 110
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: question3bpost in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 111
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: overallPre in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 113
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: overallPost in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 114
+[15-Feb-2018 22:31:49 UTC] PHP Notice:  Undefined variable: datecreated in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 116
+[15-Feb-2018 22:37:16 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 15
+[15-Feb-2018 22:37:41 UTC] PHP Notice:  Undefined variable: _SESSION in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 41
+[15-Feb-2018 22:37:41 UTC] PHP Warning:  Missing argument 13 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 15 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[15-Feb-2018 22:37:41 UTC] PHP Notice:  Undefined variable: datecreated in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 116
+[15-Feb-2018 22:38:33 UTC] PHP Notice:  Undefined variable: _SESSION in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 41
+[15-Feb-2018 22:39:37 UTC] PHP Notice:  Undefined variable: _SESSION in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 41
+[15-Feb-2018 22:39:54 UTC] PHP Notice:  Undefined variable: _SESSION in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 41
+[15-Feb-2018 22:40:04 UTC] PHP Notice:  Undefined variable: _SESSION in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 41
+[15-Feb-2018 22:41:05 UTC] PHP Notice:  Undefined variable: _SESSION in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 41
+[15-Feb-2018 22:55:56 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:01:03 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 125
+[15-Feb-2018 23:01:41 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 125
+[15-Feb-2018 23:03:31 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 125
+[15-Feb-2018 23:06:08 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:09:38 UTC] PHP Catchable fatal error:  Object of class DataBaseMysql could not be converted to string in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 36
+[15-Feb-2018 23:10:37 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:13:20 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:13:20 UTC] PHP Notice:  Undefined variable: connection in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 153
+[15-Feb-2018 23:13:20 UTC] PHP Fatal error:  Cannot access empty property in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 153
+[15-Feb-2018 23:15:13 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:15:13 UTC] PHP Notice:  Undefined property: DataBaseMysql::$error in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 153
+[15-Feb-2018 23:18:43 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:20:06 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:21:07 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:21:30 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:23:02 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:23:12 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:31:04 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:34:03 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:39:08 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:39:37 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:39:43 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:40:26 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:40:30 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:42:42 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:45:10 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[15-Feb-2018 23:45:46 UTC] PHP Notice:  Trying to get property of non-object in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 127
+[16-Feb-2018 16:09:39 UTC] PHP Parse error:  syntax error, unexpected '!', expecting '(' in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 34
+[16-Feb-2018 16:12:22 UTC] PHP Parse error:  syntax error, unexpected '!', expecting '(' in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 34
+[16-Feb-2018 16:14:08 UTC] PHP Parse error:  syntax error, unexpected '!', expecting '(' in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 34
+[16-Feb-2018 16:15:16 UTC] PHP Fatal error:  Cannot use object of type Questions as array in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 34
+[16-Feb-2018 16:16:37 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 36
+[16-Feb-2018 16:17:08 UTC] PHP Notice:  Undefined variable: userid in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 34
+[16-Feb-2018 16:17:08 UTC] PHP Fatal error:  Cannot use object of type Questions as array in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 34
+[16-Feb-2018 16:18:00 UTC] PHP Notice:  Undefined variable: userid in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 34
+[16-Feb-2018 16:18:51 UTC] PHP Notice:  Undefined variable: userid in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 34
+[16-Feb-2018 16:21:37 UTC] PHP Notice:  Undefined variable: userid in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 34
+[17-Feb-2018 08:42:32 UTC] PHP Notice:  Undefined index: datecreated in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 37
+[17-Feb-2018 08:47:05 UTC] PHP Warning:  Missing argument 13 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 38 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[17-Feb-2018 08:47:05 UTC] PHP Notice:  Undefined variable: datecreated in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 116
+[17-Feb-2018 08:47:23 UTC] PHP Warning:  Missing argument 13 for Questions::New_Questions(), called in /home/djt35/public_html/testing/anderval/includes/submitAnswers.php on line 38 and defined in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 99
+[17-Feb-2018 08:47:23 UTC] PHP Notice:  Undefined variable: datecreated in /home/djt35/public_html/testing/anderval/classes/QuestionsCSP.class.php on line 116

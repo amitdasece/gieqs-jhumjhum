@@ -1,0 +1,18 @@
+RewriteEngine On 
+
+RewriteRule ^programme$ pages/program/program.php
+RewriteRule ^program$ pages/program/program.php
+RewriteRule ^faculty$ pages/program/faculty.php
+RewriteRule ^mission$ pages/program/mission.php
+RewriteRule ^nursing$ pages/program/nursing.php
+RewriteRule ^nursing-congress$ pages/program/nursing.php
+RewriteRule ^venue$ pages/program/venue.php
+RewriteRule ^ghelamco$ pages/program/venue.php
+RewriteRule ^sponsors$ pages/program/sponsors.php
+RewriteRule ^registration$ pages/program/registration.php
+RewriteRule ^login$ pages/authentication/login.php
+RewriteRule ^logmein$ pages/authentication/login.php
+
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^(www\.)?gieqs\.com
+RewriteRule ^(.*)$ https://www.gieqs.com/$1 [R,L]
