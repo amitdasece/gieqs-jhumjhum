@@ -180,84 +180,75 @@ $q = "Select * from `commands` WHERE `id` = $key";
     /**
 		* Insert statement using PDO
 		*/
- public function prepareStatementPDO (){ 
- //need to only update those which are set 
- $ov = get_object_vars($this); 
-if ($ov['connection'] != ''){
+ public function prepareStatementPDO () { 	
+		//need to only update those which are set 
+		$ov = get_object_vars($this); 
+		if ($ov['connection'] != ''){
 			unset($ov['connection']);
 		} 
-if ($ov['id'] != ''){
+		if ($ov['id'] != '') {
 			unset($ov['id']);
 		} 
-$ovMod = array(); 
-foreach ($ov as $key=>$value){
-
-			if ($value != ''){
-
+		$ovMod = array(); 
+		foreach ($ov as $key=>$value){
+			if ($value != '') {
 				$key = '`' . $key . '`';
-
 				$ovMod[$key] = $value;
 			}
+		}
 
-			}
-$ovMod2 = array(); 
-foreach ($ov as $key=>$value){
-
-			if ($value != ''){
-
+		$ovMod2 = array(); 
+		foreach ($ov as $key=>$value) {
+			if ($value != '') {
 				$key = '' . $key . '';
-
 				$ovMod2[$key] = $value;
 			}
-
 		} 
-$ovMod3 = array(); 
-foreach ($ov as $key=>$value){
 
-			if ($value != ''){
-
+		$ovMod3 = array(); 
+		foreach ($ov as $key=>$value) {
+			if ($value != '') {
 				$key = ':' . $key;
-
 				$ovMod3[$key] = $value;
 			}
-
 		} 
-foreach ($ovMod as $key => $value) {
 
-            $value = addslashes($value);
+		foreach ($ovMod as $key => $value) {
+			$value = addslashes($value);
 			$value = "'$value'";
 			$updates[] = "$value";
-
 		} 
-$implodeArray = implode(', ', $updates); 
-//get number of terms in update
-					//need only the keys first
 
-					$keys = implode(", ", array_keys($ovMod));
-					$keys2 = implode(", ", array_keys($ovMod3));
-			
-//get number of keys
-
-				$numberOfTerms = count($ovMod);
 		
-//echo $numberOfTerms;
+		$implodeArray = implode(', ', $updates);		
+		//get number of terms in update
+		//need only the keys first
+
+		$keys = implode(", ", array_keys($ovMod));
+		$keys2 = implode(", ", array_keys($ovMod3));
+		
+		//get number of keys
+
+		$numberOfTerms = count($ovMod);
+	
+		//echo $numberOfTerms;
 
 		$termsToInsert = ''; 
-$x=0;
+		$x=0;
 
-		foreach ($ovMod as $key=>$value){
+		foreach ($ovMod as $key=>$value) {
 
 			$termsToInsert .= ( $x !== ($numberOfTerms -1) ) ? "? ," : " ?";
 
 			$x++;
 
 		} 
-$q = "INSERT INTO `commands` ($keys) VALUES ($keys2)";
-		
- $stmt = $this->connection->prepare($q); 
-$stmt->execute($ovMod3); 
-return $this->connection->conn->lastInsertId(); 
-	}
+		$q = "INSERT INTO `commands` ($keys) VALUES ($keys2)";
+				
+		$stmt = $this->connection->prepare($q); 
+		$stmt->execute($ovMod3); 
+		return $this->connection->conn->lastInsertId(); 
+}
 
     /**
 		* Update statement using PDO
@@ -461,6 +452,81 @@ $q = "UPDATE `commands` SET $implodeArray WHERE `id` = '$this->id'";
      */
 	public function endcommands(){
 		$this->connection->CloseMysql();
+	}
+
+	public function saveCommandData()
+	{
+		$ov = get_object_vars($this); 
+		if ($ov['connection'] != ''){
+			unset($ov['connection']);
+		} 
+		if ($ov['id'] != '') {
+			unset($ov['id']);
+		} 
+		$ovMod = array(); 
+		foreach ($ov as $key=>$value){
+			if ($value != '') {
+				$key = '`' . $key . '`';
+				$ovMod[$key] = $value;
+			}
+		}
+
+		$ovMod2 = array(); 
+		foreach ($ov as $key=>$value) {
+			if ($value != '') {
+				$key = '' . $key . '';
+				$ovMod2[$key] = $value;
+			}
+		} 
+
+		$ovMod3 = array(); 
+		foreach ($ov as $key=>$value) {
+			if ($value != '') {
+				$key = ':' . $key;
+				$ovMod3[$key] = $value;
+			}
+		} 
+
+		foreach ($ovMod as $key => $value) {
+			$value = addslashes($value);
+			$value = "'$value'";
+			$updates[] = "$value";
+		} 
+
+		
+		$implodeArray = implode(', ', $updates);		
+		//get number of terms in update
+		//need only the keys first
+
+		$keys = implode(", ", array_keys($ovMod));
+		$keys2 = implode(", ", array_keys($ovMod3));
+		
+		//get number of keys
+
+		$numberOfTerms = count($ovMod);
+	
+		//echo $numberOfTerms;
+
+		$termsToInsert = ''; 
+		$x=0;
+
+		foreach ($ovMod as $key=>$value) {
+
+			$termsToInsert .= ( $x !== ($numberOfTerms -1) ) ? "? ," : " ?";
+
+			$x++;
+
+		} 
+		 $q = "INSERT INTO `commands` ($keys,`status`) VALUES ($implodeArray,1)";
+				
+		$result = $this->connection->RunQuery($q);    
+
+		if ($result) {		 
+  
+		  return $this->connection->conn->lastInsertId();  
+		  
+  
+		}
 	}
 
 }

@@ -33,10 +33,9 @@ Class interaction {
 	private $education_text; //text
 	private $connection;
 
-	public function __construct(){
-            require_once 'DatabaseMyssqlPDOLearning.class.php';
-
-		$this->connection = new DataBaseMysqlPDOLearning();
+	public function __construct() {       
+		require_once 'DataBaseMysqlPDO.class.php';
+		$this->connection = new DataBaseMysqlPDOGIEQsBox();
 	}
 
     /**
@@ -404,6 +403,92 @@ $q = "UPDATE `interaction` SET $implodeArray WHERE `id` = '$this->id'";
      */
 	public function endinteraction(){
 		$this->connection->CloseMysql();
+	}
+
+
+	public function saveInteractionNewData()
+	{
+		//need to only update those which are set 
+		$ov = get_object_vars($this); 
+		if ($ov['connection'] != ''){
+					unset($ov['connection']);
+				} 
+		if ($ov['id'] != ''){
+					unset($ov['id']);
+				} 
+		$ovMod = array(); 
+		foreach ($ov as $key=>$value){
+		
+			 if ($value != '') {
+		
+				 $key = '`' . $key . '`';
+ 
+				 $ovMod[$key] = $value;
+			 }
+		
+		 }
+		$ovMod2 = array(); 
+		foreach ($ov as $key=>$value) {
+		
+			 if ($value != '') {
+ 
+				 $key = '' . $key . '';
+ 
+				 $ovMod2[$key] = $value;
+			 }
+		
+		 } 
+		$ovMod3 = array(); 
+		foreach ($ov as $key=>$value) {
+		
+			 if ($value != ''){
+ 
+				 $key = ':' . $key;
+ 
+				 $ovMod3[$key] = $value;
+			 }
+		
+		 } 
+		foreach ($ovMod as $key => $value) {
+		
+			 $value = addslashes($value);
+			 $value = "'$value'";
+			 $updates[] = "$value";
+		
+		 } 
+		$implodeArray = implode(', ', $updates); 
+		//print_r($implodeArray);exit;
+		//get number of terms in update
+							//need only the keys first
+		
+		 $keys = implode(", ", array_keys($ovMod));
+		 $keys2 = implode(", ", array_keys($ovMod3));
+					
+		//get number of keys
+		
+		 $numberOfTerms = count($ovMod);
+				
+		//echo $numberOfTerms;
+		
+		 $termsToInsert = ''; 
+			$x=0;
+		
+		 foreach ($ovMod as $key=>$value){
+ 
+			 $termsToInsert .= ( $x !== ($numberOfTerms -1) ) ? "? ," : " ?";
+ 
+			 $x++;
+ 
+		 } 
+			$q = "INSERT INTO `interaction` ($keys,`status`) VALUES ($implodeArray,1)";
+				
+		 $result = $this->connection->RunQuery($q);    
+
+			if ($result) {
+  
+		  return $this->connection->conn->lastInsertId();
+			   
+		}
 	}
 
 }

@@ -51,14 +51,14 @@
 
             print_r($return_array);
             }
-            //print_r($return_array);
+           // print_r($return_array);
 
             if ($return_array != false){
 
 
             //returning the next response id
             $return_array_2 = $box_code->get_next_response_given_interaction_id_and_order($return_array['id'], $return_array['order']);
-
+            //print_r($return_array_2);
             //return the next command array possibility
 
             //== the next command in any interaction which contains this command
@@ -69,7 +69,7 @@
             //then look for any command at this position of any interaction
             //add the array of these with their id and text to the array here
 
-            $next_required_level = intval($return_array['order']) + 2;
+             $next_required_level = intval($return_array['order']) + 2;
 
             $next_level_commands = $box_code->get_specific_level_commands($next_required_level);
 
